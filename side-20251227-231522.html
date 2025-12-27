@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide: Side</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --bg-dark: #1e293b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-gray: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+        
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .lang-selector {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            margin: -3rem 0 3rem 0;
+            border-radius: 16px;
+        }
+        
+        .lang-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .lang-btn {
+            padding: 0.875rem 1.75rem;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lang-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .lang-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .lang-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: #667eea;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .lang-btn.active::before {
+            transform: translateY(0);
+        }
+        
+        .lang-content {
+            display: none;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: #667eea;
+        }
+        
+        .card-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 4px solid transparent;
+            border-image: var(--primary) 1;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .card-title i {
+            -webkit-text-fill-color: #667eea;
+        }
+        
+        .card-description {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--info);
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-description::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 6rem;
+            color: rgba(59, 130, 246, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fefefe 0%, #fafafa 100%);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--border);
+        }
+        
+        .section-title i {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-dark);
+        }
+        
+        .section-content p {
+            margin-bottom: 1.25rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .section-content p::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .mini-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 1.5rem 0 1rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid #667eea;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
+            padding: 0.75rem 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .bullet-point {
+            padding-left: 2.5rem !important;
+        }
+        
+        .bullet-point::before {
+            content: '→';
+            background: #3b82f6 !important;
+        }
+        
+        .mini-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 1.5rem 0 1rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid #667eea;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
+            padding: 0.75rem 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .bullet-point {
+            padding-left: 2.5rem !important;
+        }
+        
+        .bullet-point::before {
+            content: '→';
+            background: #3b82f6 !important;
+        }
+        
+        .highlight-card {
+            background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+        }
+        
+        .card-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        .card-header {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 0.5rem 0 1rem 0;
+            padding-left: 0;
+        }
+        
+        .card-details {
+            margin: 0;
+            padding-left: 0 !important;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .card-details::before {
+            display: none !important;
+        }
+        
+        .emphasis-text {
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent);
+            padding: 1rem 1rem 1rem 3rem;
+            border-left: 3px solid #667eea;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.9;
+            position: relative;
+        }
+        
+        .emphasis-text::before {
+            content: '✓';
+            position: absolute;
+            left: 0.75rem;
+            top: 1rem;
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .info-table thead {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .info-table th {
+            padding: 1.25rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-table tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .info-table tbody tr:hover {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            transform: scale(1.01);
+        }
+        
+        .info-table td {
+            padding: 1.25rem;
+            font-size: 1rem;
+        }
+        
+        .info-table td:first-child {
+            font-weight: 600;
+            color: var(--text-dark);
+            width: 30%;
+        }
+        
+        .info-table td i {
+            margin-right: 0.75rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .metadata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .meta-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .meta-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary);
+        }
+        
+        .meta-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: #667eea;
+        }
+        
+        .meta-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.75rem;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .meta-label {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .meta-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tag:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tag i {
+            font-size: 0.875rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+        
+        footer {
+            background: var(--bg-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+        
+        footer a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3) !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+        }
+        
+        .footer-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content p {
+                padding-left: 1.5rem;
+            }
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .badge-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .badge-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .badge-info {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        
+        .view-all-btn {
+            display: block;
+            margin: 2rem auto;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .view-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .view-all-btn i {
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .view-all-btn.expanded i {
+            transform: rotate(180deg);
+        }
+        
+        .expandable-content {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-globe-americas"></i> Side</h1>
+            <p class="hero-subtitle">Your Complete Travel Guide</p>
+            <div class="hero-badge">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Generated on December 27, 2025</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="lang-selector">
+            <div class="lang-buttons">
+                <button class="lang-btn active" onclick="switchLanguage('en')">
+                    <span>🇬🇧</span>
+                    <span>English</span>
+                </button>
+                <button class="lang-btn " onclick="switchLanguage('tr')">
+                    <span>🇹🇷</span>
+                    <span>Türkçe</span>
+                </button>
+                <button class="lang-btn " onclick="switchLanguage('de')">
+                    <span>🇩🇪</span>
+                    <span>Deutsch</span>
+                </button>
+                <button class="lang-btn " onclick="switchLanguage('ru')">
+                    <span>🇷🇺</span>
+                    <span>Русский</span>
+                </button>
+                <button class="lang-btn " onclick="switchLanguage('uk')">
+                    <span>🇺🇦</span>
+                    <span>Українська</span>
+                </button>
+            </div>
+        </div>
+        <div class="lang-content active" id="content-en">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Complete Travel Guide to Side</h2>
+                <div class="card-description" id="desc-en">
+                    <span class="desc-preview">Side, Turkey: The Ultimate Guide to the Pomegranate CoastNestled on a sun-drenched peninsula along the Turkish Riviera, Side (pronounced see-deh) is a rare gem where ancient history and modern luxury coexist. Once a major port in Pamphylia, its name translates to &quot;pomegranate,&quot; a symbol of abundance that still rings true today. Whether you are walking over glass-paneled streets revealing Roman ruins or lounging on golden sands, Side offers an intoxicating blend of cultural depth and Mediterranean relaxation.TOP PLACES TO VISIT1. The Temple of Apollo and AthenaStanding at the very tip of the Side peninsula, the Temple of Apollo is the town’s most iconic silhouette. Built around 150 AD, its massive Corinthian columns frame the Mediterranean Sea, offering a world-class backdrop for sunset. Ad...</span>
+                    <span class="desc-full" style="display: none;">Side, Turkey: The Ultimate Guide to the Pomegranate CoastNestled on a sun-drenched peninsula along the Turkish Riviera, Side (pronounced see-deh) is a rare gem where ancient history and modern luxury coexist. Once a major port in Pamphylia, its name translates to &quot;pomegranate,&quot; a symbol of abundance that still rings true today. Whether you are walking over glass-paneled streets revealing Roman ruins or lounging on golden sands, Side offers an intoxicating blend of cultural depth and Mediterranean relaxation.TOP PLACES TO VISIT1. The Temple of Apollo and AthenaStanding at the very tip of the Side peninsula, the Temple of Apollo is the town’s most iconic silhouette. Built around 150 AD, its massive Corinthian columns frame the Mediterranean Sea, offering a world-class backdrop for sunset. Adjacent lie the remains of the Temple of Athena, distinguished by intricate friezes featuring Medusa heads.2. Side Antique TheaterThis 2nd-century Roman theater is one of the best-preserved in Turkey. Unlike many theaters of its era built into hillsides, this structure was freestanding, supported by massive vaulted arches. With a seating capacity of nearly 15,000, it once hosted gladiatorial combats and theatrical performances. The view from the top tier provides a sweeping panorama of the ancient city and the sea.3. Side Archaeological MuseumHoused within a restored 5th-century Roman bathhouse, this museum is a masterclass in atmospheric curation. The collection includes exquisite sarcophagi, Roman statuary, and Hellenistic coins discovered during local excavations. Walking through the stone halls of the former baths adds a layer of historical immersion that modern galleries often lack.4. The Nymphaeum (Monumental Fountain)Located just outside the main city gate, this grand three-story fountain once distributed water via aqueducts from the Manavgat River. Even in its ruined state, the ornate carvings and scale of the structure testify to the wealth and engineering prowess of ancient Side.5. Manavgat WaterfallJust a short drive or dolmuş (local bus) ride inland, the Manavgat Waterfall is a wide, powerful cascade on the emerald-green Manavgat River. While not particularly high, the sheer volume of water creates a dramatic display. Shaded tea gardens and seafood restaurants line the riverbank, providing a cool respite from the coastal heat.6. Side West and East BeachesSide is flanked by two distinct coastlines. West Beach is the more developed of the two, featuring a long promenade, shallow calm waters perfect for families, and numerous beach clubs. East Beach offers a more rugged, tranquil experience with sand dunes and clearer waters, though it can be slightly windier.7. Altınbeşik CaveFor those willing to venture into the Taurus Mountains, the Altınbeşik Cave (Golden Cradle) houses the largest underground lake in Turkey. Visitors can take a guided boat tour through the first level of the cave to witness stunning stalactites and the eerie, turquoise reflection of the subterranean waters.FOOD &amp; DININGTurkish cuisine in Side is a celebration of fresh seafood and traditional Anatolian flavors.Recommended RestaurantsQ Beach Restaurant &amp; Lounge: Known for its upscale beachfront atmosphere, this is the place for Mediterranean-fusion dishes like garlic prawns and grilled salmon.Side Orfoz: A staple for seafood lovers in the Old Town. Their &quot;mixed fish tray&quot; is a local favorite, featuring the catch of the day prepared with Aegean herbs.Azumare Lounge: Situated near the harbor, it offers the best views of the Temple of Apollo. It is ideal for a &quot;Sundowner&quot; cocktail accompanied by a selection of Meze.Local Specialties to TryGözleme: Savory Turkish pancakes hand-rolled and filled with spinach, feta, or spiced minced meat.Antalya Style Piyaz: A white bean salad unique to this region, dressed with a rich tahini, lemon, and garlic sauce.Fresh Pomegranate Juice: In honor of the city&#x27;s namesake, vendors throughout the Old Town squeeze fresh juice daily.3-DAY TRAVEL ITINERARYDay 1: The Heart of AntiquityMorning: Begin at the Nymphaeum and walk through the Vespasian Gate into the Old Town. Spend 2 hours exploring the Antique Theater.Afternoon: Visit the Side Archaeological Museum. Afterward, head to West Beach for a swim and a late lunch at a beachfront café.Evening: Walk to the tip of the peninsula to watch the sunset at the Temple of Apollo. Follow this with a seafood dinner at the harbor.Day 2: River and RapidsMorning: Take a boat trip up the Manavgat River. Stop at the Manavgat Waterfall for photos and a traditional Turkish tea.Afternoon: Browse the Manavgat Bazaar (Mondays and Thursdays are best) for spices, textiles, and local crafts.Evening: Return to Side for a relaxed evening. Explore the &quot;New Town&quot; area for live music and a modern Turkish dinner.Day 3: Adventure and MountainsMorning: Take a day trip to Köprülü Canyon for whitewater rafting or a visit to the ancient city of Selge.Afternoon: On the way back, stop at the Altınbeşik Cave to see the underground lake.Evening: Enjoy a farewell dinner at Azumare Lounge, soaking in the Mediterranean breeze one last time.PRACTICAL TIPSTransportDolmuş: These local minibuses are the most efficient way to travel between Side and Manavgat. They are frequent and very affordable.Walking: The Old Town (Antik Kent) is entirely pedestrian-friendly and best explored on foot.Taxis: Readily available but agree on a price or ensure the meter is running before starting your journey.Best Time to VisitThe &quot;shoulder seasons&quot; of April to June and September to October offer the best balance of warm weather and manageable crowds. July and August can see temperatures exceeding 35°C (95°F).Budget &amp; SafetyCurrency: The Turkish Lira (TRY) is the official currency. While many places accept Euros, you will get a better rate using Lira.Safety: Side is very safe for tourists, though usual precautions against pickpocketing in crowded bazaars should be taken.Cultural Etiquette: When visiting mosques (like the Manavgat Central Mosque), ensure shoulders and knees are covered. It is customary to remove shoes before entering.Would you like me to help you find the best boutique hotels in Side&#x27;s Old Town for your stay?</span>
+                    <button class="view-all-btn" onclick="toggleDescription('desc-en')" style="margin-top: 1rem;"><i class="fas fa-chevron-down"></i> Read More</button>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-compass"></i> Overview</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg" alt="side - Overview" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Dmitri Sumar
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-en-0">
+                        <div class="highlight-card">
+                            <div class="card-number">1</div>
+                            <h5 class="card-header">The Temple of Apollo and AthenaStanding at the very tip of the Side peninsula, the Temple of Apollo is the town’s most iconic silhouette.</h5>
+                            <p class="card-details">Built around 150 AD, its massive Corinthian columns frame the Mediterranean Sea, offering a world-class backdrop for sunset. Adjacent lie the remains of the Temple of Athena, distinguished by intricate friezes featuring Medusa heads.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">2</div>
+                            <h5 class="card-header">Side Antique TheaterThis 2nd-century Roman theater is one of the best-preserved in Turkey.</h5>
+                            <p class="card-details">Unlike many theaters of its era built into hillsides, this structure was freestanding, supported by massive vaulted arches. With a seating capacity of nearly 15,000, it once hosted gladiatorial combats and theatrical performances. The view from the top tier provides a sweeping panorama of the ancient city and the sea.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">3</div>
+                            <h5 class="card-header">Side Archaeological MuseumHoused within a restored 5th-century Roman bathhouse, this museum is a masterclass in atmospheric curation.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-star"></i> Section 2</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg" alt="side - Section 2" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Kub-Liz
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-en-1">
+                        <div class="highlight-card">
+                            <div class="card-number">4</div>
+                            <h5 class="card-header">The Nymphaeum (Monumental Fountain)Located just outside the main city gate, this grand three-story fountain once distributed water via aqueducts from the Manavgat River.</h5>
+                            <p class="card-details">Even in its ruined state, the ornate carvings and scale of the structure testify to the wealth and engineering prowess of ancient Side.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">5</div>
+                            <h5 class="card-header">Manavgat WaterfallJust a short drive or dolmuş (local bus) ride inland, the Manavgat Waterfall is a wide, powerful cascade on the emerald-green Manavgat River.</h5>
+                            <p class="card-details">While not particularly high, the sheer volume of water creates a dramatic display. Shaded tea gardens and seafood restaurants line the riverbank, providing a cool respite from the coastal heat.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">6</div>
+                            <h5 class="card-header">Side West and East BeachesSide is flanked by two distinct coastlines.</h5>
+                            <p class="card-details">West Beach is the more developed of the two, featuring a long promenade, shallow calm waters perfect for families, and numerous beach clubs. East Beach offers a more rugged, tranquil experience with sand dunes and clearer waters, though it can be slightly windier.</p>
+                        </div>
+                        <div class="highlight-card expandable-content" style="display: none;">
+                            <div class="card-number">7</div>
+                            <h5 class="card-header">Altınbeşik CaveFor those willing to venture into the Taurus Mountains, the Altınbeşik Cave (Golden Cradle) houses the largest underground lake in Turkey.</h5>
+                        </div>
+                        <button class="view-all-btn" onclick="toggleViewAll('section-en-1')"><i class="fas fa-chevron-down"></i> View All (4 items)</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-heart"></i> Section 3</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg" alt="side - Section 3" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Nick Fewings
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-en-2">
+                        <p class="emphasis-text">Visitors can take a guided boat tour through the first level of the cave to witness stunning stalactites and the eerie, turquoise reflection of the subterranean waters.FOOD &amp; DININGTurkish cuisine in Side is a celebration of fresh seafood and traditional Anatolian flavors.Recommended RestaurantsQ Beach Restaurant &amp; Lounge: Known for its upscale beachfront atmosphere, this is the place for Mediterranean-fusion dishes like garlic prawns and grilled salmon.Side Orfoz: A staple for seafood lovers in the Old Town.</p>
+                        <p class="emphasis-text">Their &quot;mixed fish tray&quot; is a local favorite, featuring the catch of the day prepared with Aegean herbs.Azumare Lounge: Situated near the harbor, it offers the best views of the Temple of Apollo.</p>
+                        <p class="emphasis-text">It is ideal for a &quot;Sundowner&quot; cocktail accompanied by a selection of Meze.Local Specialties to TryGözleme: Savory Turkish pancakes hand-rolled and filled with spinach, feta, or spiced minced meat.Antalya Style Piyaz: A white bean salad unique to this region, dressed with a rich tahini, lemon, and garlic sauce.Fresh Pomegranate Juice: In honor of the city&#x27;s namesake, vendors throughout the Old Town squeeze fresh juice daily.3-DAY TRAVEL ITINERARYDay 1: The Heart of AntiquityMorning: Begin at the Nymphaeum and walk through the Vespasian Gate into the Old Town.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-info-circle"></i> Section 4</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg" alt="side - Section 4" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Stefan Gogov
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-en-3">
+                        <p class="emphasis-text">Afterward, head to West Beach for a swim and a late lunch at a beachfront café.Evening: Walk to the tip of the peninsula to watch the sunset at the Temple of Apollo.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Follow this with a seafood dinner at the harbor.Day 2</h4>
+                        <p class="emphasis-text">River and RapidsMorning: Take a boat trip up the Manavgat River.</p>
+                        <p class="emphasis-text">Stop at the Manavgat Waterfall for photos and a traditional Turkish tea.Afternoon: Browse the Manavgat Bazaar (Mondays and Thursdays are best) for spices, textiles, and local crafts.Evening: Return to Side for a relaxed evening.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Explore the &quot;New Town&quot; area for live music and a modern Turkish dinner.Day 3</h4>
+                        <p class="emphasis-text">Adventure and MountainsMorning: Take a day trip to Köprülü Canyon for whitewater rafting or a visit to the ancient city of Selge.Afternoon: On the way back, stop at the Altınbeşik Cave to see the underground lake.Evening: Enjoy a farewell dinner at Azumare Lounge, soaking in the Mediterranean breeze one last time.PRACTICAL TIPSTransportDolmuş: These local minibuses are the most efficient way to travel between Side and Manavgat.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-map-marked-alt"></i> Section 5</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg" alt="side - Section 5" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Tom Podmor
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-en-4">
+                        <p class="emphasis-text">July and August can see temperatures exceeding 35°C (95°F).Budget &amp; SafetyCurrency: The Turkish Lira (TRY) is the official currency.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>While many places accept Euros, you will get a better rate using Lira.Safety</h4>
+                        <p class="emphasis-text">Side is very safe for tourists, though usual precautions against pickpocketing in crowded bazaars should be taken.Cultural Etiquette: When visiting mosques (like the Manavgat Central Mosque), ensure shoulders and knees are covered.</p>
+                    </div>
+                </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Travel Information</h2>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-list"></i> Property</th>
+                            <th><i class="fas fa-check-circle"></i> Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tag" style="color: #667eea;"></i> Category</td>
+                            <td><span class="badge badge-info">Tours &amp; Activities</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-star" style="color: #f59e0b;"></i> Rating</td>
+                            <td><strong>⭐⭐⭐⭐</strong> <span style="color: #10b981; font-weight: 700;">(4.5/5.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-dollar-sign" style="color: #10b981;"></i> Price Range</td>
+                            <td><span class="badge badge-success">₺₺ - ₺₺₺</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-clock" style="color: #3b82f6;"></i> Best Season</td>
+                            <td>Spring &amp; Summer (April - September)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-users" style="color: #7c3aed;"></i> Suitable For</td>
+                            <td>Families, Couples, Solo Travelers</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-utensils" style="color: #ef4444;"></i> Where to Eat</td>
+                            <td>
+                                <div style="max-height: 300px; overflow-y: auto; padding: 5px;">
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>1. Moonlight Restaurant Side</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7678,31.3895" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7678, 31.3895)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>2. Ocakbaşı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7685,31.3912" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7685, 31.3912)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>3. Sound of the Sea</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.7)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Seafood | ₺₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7692,31.3928" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7692, 31.3928)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>4. Aphrodite Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Mediterranean | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7671,31.3883" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7671, 31.3883)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>5. Conny&#x27;s Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.3)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7699,31.3945" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7699, 31.3945)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>6. Saraylı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Cuisine | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7665,31.3871" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7665, 31.3871)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>7. Beach House Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Beach &amp; Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7708,31.3967" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7708, 31.3967)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>8. Sidelya Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; Fish | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7687,31.3901" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7687, 31.3901)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>9. Köfteci Ramiz</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.2)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Meatballs &amp; Turkish | ₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7674,31.3889" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7674, 31.3889)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>10. Tuana Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Traditional | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7695,31.3934" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7695, 31.3934)</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-money-bill-wave" style="color: #10b981;"></i> Currency Exchange</td>
+                            <td>Banks, ATMs (widely available), Exchange offices in Side center, Hotels. Currency: Turkish Lira (₺/TRY)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-shopping-cart" style="color: #f59e0b;"></i> Shopping</td>
+                            <td>Side local markets, Weekly bazaar, Shopping centers, Souvenir shops, Handicraft stores</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-bus" style="color: #3b82f6;"></i> Transportation</td>
+                            <td>Dolmuş (shared minibus), Local buses in Side, Taxis (metered), Car rentals, Bicycle rentals</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-language" style="color: #764ba2;"></i> Language</td>
+                            <td>Turkish (main), English spoken in tourist areas, German and Russian common in coastal regions</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-info-circle" style="color: #667eea;"></i> Tourist Info</td>
+                            <td>Side tourist information office, Hotel concierge services, Local tour operators, Online travel resources</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+							
+            </div>
+        </div>
+        <div class="lang-content " id="content-tr">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Side&#x27;ye Tam Seyahat Rehberi</h2>
+                <div class="card-description" id="desc-tr">
+                    <span class="desc-preview">Side, Türkiye: Nar Sahili İçin Nihai Rehber Türk Rivierası boyunca güneş alan bir yarımadada yer alan Side (see-deh olarak telaffuz edilir), antik tarih ile modern lüksün bir arada var olduğu nadir bir mücevherdir.
+ Bir zamanlar Pamfilya&#x27;nın önemli bir limanı olan bu şehrin adı, bugün hala geçerliliğini koruyan bir bereket sembolü olan &quot;nar&quot; anlamına gelmektedir.
+ İster Roma kalıntılarını ortaya çıkaran cam panelli sokaklarda yürüyor olun, ister altın rengi kumlara uzanıyor olun, Side, kültürel derinlik ve Akdeniz rahatlığının baş döndürücü bir karışımını sunuyor. ZİYARET EDİLECEK EN İYİ YERLER1.
+ Apollon Tapınağı ve AthenaSide yarımadasının en ucunda yer alan Apollon Tapınağı, kentin en ikonik silüetidir.
+ MS 150 civarında inşa edilen devasa Korint sütunları, Akdeniz&#x27;i çevreleyerek gün ba...</span>
+                    <span class="desc-full" style="display: none;">Side, Türkiye: Nar Sahili İçin Nihai Rehber Türk Rivierası boyunca güneş alan bir yarımadada yer alan Side (see-deh olarak telaffuz edilir), antik tarih ile modern lüksün bir arada var olduğu nadir bir mücevherdir.
+ Bir zamanlar Pamfilya&#x27;nın önemli bir limanı olan bu şehrin adı, bugün hala geçerliliğini koruyan bir bereket sembolü olan &quot;nar&quot; anlamına gelmektedir.
+ İster Roma kalıntılarını ortaya çıkaran cam panelli sokaklarda yürüyor olun, ister altın rengi kumlara uzanıyor olun, Side, kültürel derinlik ve Akdeniz rahatlığının baş döndürücü bir karışımını sunuyor. ZİYARET EDİLECEK EN İYİ YERLER1.
+ Apollon Tapınağı ve AthenaSide yarımadasının en ucunda yer alan Apollon Tapınağı, kentin en ikonik silüetidir.
+ MS 150 civarında inşa edilen devasa Korint sütunları, Akdeniz&#x27;i çevreleyerek gün batımı için birinci sınıf bir fon sunuyor.
+ Hemen bitişiğinde, Medusa başlarının yer aldığı karmaşık frizlerle öne çıkan Athena Tapınağı&#x27;nın kalıntıları bulunmaktadır.2.
+ Side Antik Tiyatrosu 2. yüzyıldan kalma bu Roma tiyatrosu, Türkiye&#x27;nin en iyi korunmuş tiyatrolarından biridir.
+ Döneminin yamaçlara inşa edilmiş birçok tiyatrosundan farklı olarak bu yapı, devasa tonozlu kemerlerle desteklenen bağımsız bir yapıydı.
+ Yaklaşık 15.000 kişilik oturma kapasitesiyle bir zamanlar gladyatör dövüşlerine ve tiyatro gösterilerine ev sahipliği yapmıştı.
+ En üst kattan görülen manzara, antik kentin ve denizin geniş bir panoramasını sunmaktadır.3.
+ Side Arkeoloji MüzesiRestore edilmiş bir 5. yüzyıl Roma hamamının içinde yer alan bu müze, atmosferik küratörlük konusunda bir ustalık sınıfıdır.
+ Koleksiyonda yerel kazılar sırasında keşfedilen zarif lahitler, Roma heykelleri ve Helenistik sikkeler yer alıyor.
+ Eski hamamların taş koridorlarında yürümek, modern galerilerde sıklıkla bulunmayan bir tarihsel derinlik katıyor.4.
+ Nymphaeum (Anıtsal Çeşme) Şehir ana kapısının hemen dışında yer alan bu üç katlı büyük çeşme, bir zamanlar Manavgat Nehri&#x27;nden su kemerleri aracılığıyla su dağıtıyordu.
+ Yıkık haliyle bile yapının süslü oymaları ve ölçeği, antik çağın zenginliğine ve mühendislik becerisine tanıklık ediyor.</span>
+                    <button class="view-all-btn" onclick="toggleDescription('desc-tr')" style="margin-top: 1rem;"><i class="fas fa-chevron-down"></i> Read More</button>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-compass"></i> Genel Bakış</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg" alt="side - Genel Bakış" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Dmitri Sumar
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-tr-0">
+                        <div class="highlight-card">
+                            <div class="card-number">1</div>
+                            <h5 class="card-header">Apollon Tapınağı ve AthenaSide yarımadasının en ucunda yer alan Apollon Tapınağı, kentin en ikonik silüetidir.</h5>
+                            <p class="card-details">MS 150 civarında inşa edilen devasa Korint sütunları, Akdeniz&#x27;i çevreleyerek gün batımı için birinci sınıf bir fon sunuyor.
+ Hemen bitişiğinde, Medusa başlarının yer aldığı karmaşık frizlerle öne çıkan Athena Tapınağı&#x27;nın kalıntıları bulunmaktadır.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">2</div>
+                            <h5 class="card-header">Side Antik Tiyatrosu 2.</h5>
+                            <p class="card-details">yüzyıldan kalma bu Roma tiyatrosu, Türkiye&#x27;nin en iyi korunmuş tiyatrolarından biridir.
+ Döneminin yamaçlara inşa edilmiş birçok tiyatrosundan farklı olarak bu yapı, devasa tonozlu kemerlerle desteklenen bağımsız bir yapıydı.
+ Yaklaşık 15.000 kişilik oturma kapasitesiyle bir zamanlar gladyatör dövüşlerine ve tiyatro gösterilerine ev sahipliği yapmıştı.
+ En üst kattan görülen manzara, antik kentin ve denizin geniş bir panoramasını sunmaktadır.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">3</div>
+                            <h5 class="card-header">Side Arkeoloji MüzesiRestore edilmiş bir 5.</h5>
+                            <p class="card-details">yüzyıl Roma hamamının içinde yer alan bu müze, atmosferik küratörlük konusunda bir ustalık sınıfıdır.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-star"></i> Bölüm 2</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg" alt="side - Bölüm 2" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Kub-Liz
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-tr-1">
+                        <div class="highlight-card">
+                            <div class="card-number">4</div>
+                            <h5 class="card-header">Nymphaeum (Anıtsal Çeşme) Şehir ana kapısının hemen dışında yer alan bu üç katlı büyük çeşme, bir zamanlar Manavgat Nehri&#x27;nden su kemerleri aracılığıyla su dağıtıyordu.</h5>
+                            <p class="card-details">Yıkık haliyle bile yapının süslü oymaları ve ölçeği, antik Side&#x27;nin zenginliğine ve mühendislik becerisine tanıklık etmektedir.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">6</div>
+                            <h5 class="card-header">Side Batı ve Doğu PlajlarıSide&#x27;ın iki yanında iki ayrı sahil şeridi bulunmaktadır.</h5>
+                            <p class="card-details">West Beach, uzun bir gezinti yolu, aileler için mükemmel olan sığ ve sakin suları ve çok sayıda plaj kulübüyle bu ikisinden daha gelişmiş olanıdır.
+ Doğu Plajı, biraz daha rüzgarlı olsa da kum tepeleri ve berrak sularıyla daha engebeli ve sakin bir deneyim sunuyor.
+ Altınbeşik MağarasıToros Dağları&#x27;na çıkmak isteyenler için Altınbeşik Mağarası (Altın Beşik), Türkiye&#x27;nin en büyük yeraltı gölüne ev sahipliği yapıyor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-heart"></i> Bölüm 3</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg" alt="side - Bölüm 3" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Nick Fewings
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-tr-2">
+                        <p class="emphasis-text">Ziyaretçiler, mağaranın ilk katında rehberli bir tekne turu yaparak göz kamaştırıcı sarkıtlara ve yeraltı sularının ürkütücü, turkuaz yansımasına tanık olabilirler.</p>
+                        <p class="emphasis-text">YEMEK VE YEMEK Side&#x27;deki Türk mutfağı, taze deniz ürünleri ve geleneksel Anadolu lezzetlerinin bir kutlamasıdır. Önerilen RestoranlarQ Beach Restaurant &amp; Lounge: Lüks sahil atmosferiyle bilinen burası, sarımsaklı karides ve ızgara somon gibi Akdeniz füzyon yemeklerinin mekanıdır.</p>
+                        <p class="emphasis-text">Side Orfoz: Eski Deniz ürünleri sevenler için vazgeçilmez bir mekan
+ Kasaba.</p>
+                        <p class="emphasis-text">Ege otlarıyla hazırlanan günün avını içeren &quot;karışık balık tepsisi&quot; yerel favorilerden biridir.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Azumare Lounge</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Limanın yakınında yer alan bu salon, Apollon Tapınağı&#x27;nın en güzel manzarasını sunmaktadır.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Meze çeşitlerinin eşlik ettiği &quot;Gün Batımı&quot; kokteyli için idealdir.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Gözleme Yöresel Yemekler</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Elle sarılıp ıspanak, beyaz peynir veya baharatlı kıyma ile doldurulmuş lezzetli Türk krepleri.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Antalya Usulü Piyaz</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Zengin tahin, limon ve sarımsak sosuyla süslenmiş, bu bölgeye özgü beyaz fasulye salatası.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Taze Nar Suyu</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Şehrin adının anısına, Eski Kent&#x27;teki satıcılar taze meyve suyu sıkıyor
+ günlük.3 GÜNLÜK SEYAHAT PROGRAMI 1.Gün: Antik Çağ&#x27;ın KalbiSabah: Nymphaeum&#x27;dan başlayın ve Vespasianus Kapısı&#x27;ndan Eski Kent&#x27;e doğru yürüyün.</p>
+                        <button class="view-all-btn" onclick="toggleViewAll('section-tr-2')"><i class="fas fa-chevron-down"></i> View All</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-info-circle"></i> Bölüm 4</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg" alt="side - Bölüm 4" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Stefan Gogov
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-tr-3">
+                        <div class="highlight-card">
+                            <div class="card-number">2</div>
+                            <h5 class="card-header">Gün: Nehir ve AkıntılarSabah: Manavgat Nehri&#x27;nde tekne turuna çıkın.</h5>
+                            <p class="card-details">Fotoğraf çekmek ve geleneksel bir Türk çayı içmek için Manavgat Şelalesi&#x27;nde mola verin. Öğleden sonra: Baharatlar, tekstil ürünleri ve yerel el sanatları için Manavgat Pazarı&#x27;na (Pazartesi ve Perşembe günleri en iyisi) göz atın. Akşam: Rahat bir akşam için Side&#x27;ye dönün.
+ Canlı müzik ve modern bir Türk yemeği için &quot;Yeni Şehir&quot; bölgesini keşfedin.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">3</div>
+                            <h5 class="card-header">Gün: Macera ve DağlarSabah: Rafting yapmak için Köprülü Kanyon&#x27;a günübirlik gezi veya Selge antik kentini ziyaret edin.</h5>
+                            <p class="card-details">Öğleden sonra: Dönüşte Altınbeşik Mağarası&#x27;nda yer altı gölünü görmek için mola verin.Akşam: Azumare Lounge&#x27;da son kez Akdeniz esintisine dalarak veda yemeğinin tadını çıkarın.PRATİK İPUÇLARIUlaşımDolmuş: Bu yerel
+ Side-Manavgat arası ulaşımın en verimli yolu minibüslerdir.
+ Sık sık bulunurlar ve çok uygun fiyatlıdırlar. Yürüyüş: Eski Kent (Antik Kent) tamamen yaya dostudur ve en iyi şekilde yürüyerek keşfedilebilir. Taksiler: Kolayca ulaşılabilir ancak bir fiyat üzerinde anlaşın veya yolculuğunuza başlamadan önce taksimetrenin çalıştığından emin olun. Ziyaret Edilecek En İyi Zaman Nisan-Haziran ve Eylül-Ekim ayları arasındaki &quot;omuz mevsimleri&quot;, sıcak hava ve yönetilebilir kalabalıklar arasında en iyi dengeyi sunar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-map-marked-alt"></i> Bölüm 5</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg" alt="side - Bölüm 5" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Tom Podmor
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-tr-4">
+                        <p class="emphasis-text">Temmuz ve Ağustos aylarında 35°C&#x27;yi (95°F) aşan sıcaklıklar görülebilir.</p>
+                        <p class="emphasis-text">Bütçe ve Güvenlik Para Birimi: Türk Lirası (TRY) resmi para birimidir.</p>
+                        <p class="emphasis-text">Pek çok yer Euro kabul etse de Lira kullanarak daha iyi bir kur elde edersiniz.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Güvenlik</h4>
+                        <p class="emphasis-text">Side turistler için oldukça güvenlidir ancak kalabalık pazarlarda yankesiciliğe karşı genel önlemler alınmalıdır.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Kültürel Görgü Kuralları</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Camileri (Manavgat Merkez Camii gibi) ziyaret ederken omuzların ve dizlerin kapalı olduğundan emin olun.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Girmeden önce ayakkabıların çıkarılması adettendir.</p>
+                        <button class="view-all-btn" onclick="toggleViewAll('section-tr-4')"><i class="fas fa-chevron-down"></i> View All</button>
+                    </div>
+                </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Seyahat Bilgileri</h2>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-list"></i> Özellik</th>
+                            <th><i class="fas fa-check-circle"></i> Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tag" style="color: #667eea;"></i> Kategori</td>
+                            <td><span class="badge badge-info">Turlar ve Aktiviteler</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-star" style="color: #f59e0b;"></i> Değerlendirme</td>
+                            <td><strong>⭐⭐⭐⭐</strong> <span style="color: #10b981; font-weight: 700;">(4.5/5.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-dollar-sign" style="color: #10b981;"></i> Fiyat Aralığı</td>
+                            <td><span class="badge badge-success">₺₺ - ₺₺₺</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-clock" style="color: #3b82f6;"></i> En İyi Sezon</td>
+                            <td>İlkbahar ve Yaz (Nisan - Eylül)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-users" style="color: #7c3aed;"></i> Kimler İçin Uygun</td>
+                            <td>Aileler, Çiftler, Solo Gezginler</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-utensils" style="color: #ef4444;"></i> Nerede Yemek Yenir</td>
+                            <td>
+                                <div style="max-height: 300px; overflow-y: auto; padding: 5px;">
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>1. Moonlight Restaurant Side</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7678,31.3895" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7678, 31.3895)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>2. Ocakbaşı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7685,31.3912" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7685, 31.3912)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>3. Sound of the Sea</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.7)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Seafood | ₺₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7692,31.3928" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7692, 31.3928)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>4. Aphrodite Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Mediterranean | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7671,31.3883" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7671, 31.3883)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>5. Conny&#x27;s Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.3)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7699,31.3945" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7699, 31.3945)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>6. Saraylı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Cuisine | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7665,31.3871" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7665, 31.3871)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>7. Beach House Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Beach &amp; Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7708,31.3967" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7708, 31.3967)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>8. Sidelya Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; Fish | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7687,31.3901" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7687, 31.3901)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>9. Köfteci Ramiz</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.2)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Meatballs &amp; Turkish | ₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7674,31.3889" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7674, 31.3889)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>10. Tuana Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Traditional | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7695,31.3934" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7695, 31.3934)</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-money-bill-wave" style="color: #10b981;"></i> Döviz Bürosu</td>
+                            <td>Bankalar, ATM&#x27;ler (her yerde mevcut), Side merkezinde döviz büroları, Oteller. Para birimi: Türk Lirası (₺/TRY)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-shopping-cart" style="color: #f59e0b;"></i> Alışveriş</td>
+                            <td>Side yerel pazarları, Haftalık pazar, Alışveriş merkezleri, Hediyelik eşya dükkanları, El sanatları mağazaları</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-bus" style="color: #3b82f6;"></i> Ulaşım</td>
+                            <td>Dolmuş (minibüs), Side içi otobüsler, Taksiler (taksimetreli), Araç kiralama, Bisiklet kiralama</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-language" style="color: #764ba2;"></i> Dil</td>
+                            <td>Türkçe (ana dil), Turistik bölgelerde İngilizce konuşulur, Sahil bölgelerinde Almanca ve Rusça yaygın</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-info-circle" style="color: #667eea;"></i> Turist Bilgi</td>
+                            <td>Side turist danışma bürosu, Otel resepsiyon hizmetleri, Yerel tur operatörleri, Çevrimiçi seyahat kaynakları</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+							
+            </div>
+        </div>
+        <div class="lang-content " id="content-de">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Vollständiger Reiseführer für Side</h2>
+                <div class="card-description" id="desc-de">
+                    <span class="desc-preview">Side, Türkei: Der ultimative Reiseführer zur Granatapfelküste. Side (ausgesprochen see-deh) liegt auf einer sonnenverwöhnten Halbinsel an der türkischen Riviera und ist ein seltenes Juwel, in dem alte Geschichte und moderner Luxus nebeneinander existieren.
+ Einst ein wichtiger Hafen in Pamphylien, bedeutet sein Name „Granatapfel“, ein Symbol des Überflusses, das auch heute noch seine Gültigkeit behält.
+ Egal, ob Sie über verglaste Straßen spazieren und römische Ruinen entdecken oder am goldenen Sandstrand faulenzen, Side bietet eine berauschende Mischung aus kultureller Tiefe und mediterraner Entspannung. TOP-ORTE ZUM BESUCHEN1.
+ Der Apollon- und Athena-Tempel Der Apollon-Tempel steht an der äußersten Spitze der Halbinsel Side und ist die ikonischste Silhouette der Stadt.
+ Die um 150 n. Ch...</span>
+                    <span class="desc-full" style="display: none;">Side, Türkei: Der ultimative Reiseführer zur Granatapfelküste. Side (ausgesprochen see-deh) liegt auf einer sonnenverwöhnten Halbinsel an der türkischen Riviera und ist ein seltenes Juwel, in dem alte Geschichte und moderner Luxus nebeneinander existieren.
+ Einst ein wichtiger Hafen in Pamphylien, bedeutet sein Name „Granatapfel“, ein Symbol des Überflusses, das auch heute noch seine Gültigkeit behält.
+ Egal, ob Sie über verglaste Straßen spazieren und römische Ruinen entdecken oder am goldenen Sandstrand faulenzen, Side bietet eine berauschende Mischung aus kultureller Tiefe und mediterraner Entspannung. TOP-ORTE ZUM BESUCHEN1.
+ Der Apollon- und Athena-Tempel Der Apollon-Tempel steht an der äußersten Spitze der Halbinsel Side und ist die ikonischste Silhouette der Stadt.
+ Die um 150 n. Chr. erbauten massiven korinthischen Säulen rahmen das Mittelmeer ein und bieten eine erstklassige Kulisse für den Sonnenuntergang.
+ Angrenzend liegen die Überreste des Athena-Tempels, der sich durch komplizierte Friese mit Medusenköpfen auszeichnet.2.
+ Antikes Theater von SideDieses römische Theater aus dem 2. Jahrhundert ist eines der am besten erhaltenen in der Türkei.
+ Im Gegensatz zu vielen in Hügeln gebauten Theatern seiner Zeit war dieses Bauwerk freistehend und wurde von massiven Gewölbebögen getragen.
+ Mit einer Kapazität von fast 15.000 Sitzplätzen fanden hier einst Gladiatorenkämpfe und Theateraufführungen statt.
+ Der Blick von der obersten Etage bietet ein weites Panorama auf die antike Stadt und das Meer.3.
+ Archäologisches Museum SideUntergebracht in einem restaurierten römischen Badehaus aus dem 5. Jahrhundert, ist dieses Museum eine Meisterklasse für atmosphärische Kuration.
+ Die Sammlung umfasst exquisite Sarkophage, römische Statuen und hellenistische Münzen, die bei lokalen Ausgrabungen entdeckt wurden.
+ Ein Spaziergang durch die steinernen Hallen der ehemaligen Bäder verleiht einen Einblick in die Geschichte, der in modernen Galerien oft fehlt.4.
+ Das Nymphäum (monumentaler Brunnen) Direkt vor dem Haupttor der Stadt gelegen, verteilte dieser große dreistöckige Brunnen einst Wasser über Aquädukte aus dem Manavgat-Fluss.
+ Selbst in seinem zerstörten Zustand zeugen die kunstvollen Schnitzereien und die Größe des Bauwerks vom Reichtum und der Ingenieurskunst der Antike</span>
+                    <button class="view-all-btn" onclick="toggleDescription('desc-de')" style="margin-top: 1rem;"><i class="fas fa-chevron-down"></i> Read More</button>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-compass"></i> Überblick</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg" alt="side - Überblick" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Dmitri Sumar
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-de-0">
+                        <div class="highlight-card">
+                            <div class="card-number">1</div>
+                            <h5 class="card-header">Der Apollon- und Athena-Tempel Der Apollon-Tempel steht an der äußersten Spitze der Halbinsel Side und ist die ikonischste Silhouette der Stadt.</h5>
+                            <p class="card-details">Die um 150 n. Chr. erbauten massiven korinthischen Säulen rahmen das Mittelmeer ein und bieten eine erstklassige Kulisse für den Sonnenuntergang.
+ Angrenzend liegen die Überreste des Athena-Tempels, der sich durch komplizierte Friese mit Medusenköpfen auszeichnet.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">2</div>
+                            <h5 class="card-header">Jahrhundert ist eines der am besten erhaltenen in der Türkei.</h5>
+                            <p class="card-details">Im Gegensatz zu vielen in Hügeln gebauten Theatern seiner Zeit war dieses Bauwerk freistehend und wurde von massiven Gewölbebögen getragen.
+ Mit einer Kapazität von fast 15.000 Sitzplätzen fanden hier einst Gladiatorenkämpfe und Theateraufführungen statt.
+ Der Blick von der obersten Etage bietet ein weites Panorama auf die antike Stadt und das Meer.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">5</div>
+                            <h5 class="card-header">Jahrhundert, ist dieses Museum eine Meisterklasse für atmosphärische Kuration.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-star"></i> Abschnitt 2</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg" alt="side - Abschnitt 2" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Kub-Liz
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-de-1">
+                        <div class="highlight-card">
+                            <div class="card-number">4</div>
+                            <h5 class="card-header">Das Nymphäum (monumentaler Brunnen) Direkt vor dem Haupttor der Stadt gelegen, verteilte dieser große dreistöckige Brunnen einst Wasser über Aquädukte aus dem Manavgat-Fluss.</h5>
+                            <p class="card-details">Selbst in seinem zerstörten Zustand zeugen die kunstvollen Schnitzereien und die Größe des Bauwerks vom Reichtum und der Ingenieurskunst des antiken Side.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">6</div>
+                            <h5 class="card-header">West- und Oststrände von SideSide wird von zwei unterschiedlichen Küstenlinien flankiert.</h5>
+                            <p class="card-details">West Beach ist der am weitesten entwickelte Strand mit einer langen Promenade, flachem, ruhigem Wasser, ideal für Familien, und zahlreichen Strandclubs.
+ East Beach bietet ein raueres, ruhigeres Erlebnis mit Sanddünen und klarerem Wasser, obwohl es etwas windiger sein kann.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="card-number">7</div>
+                            <h5 class="card-header">Altınbeşik-HöhleFür diejenigen, die sich ins Taurusgebirge wagen möchten, beherbergt die Altınbeşik-Höhle (Goldene Wiege) den größten unterirdischen See der Türkei.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-heart"></i> Abschnitt 3</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg" alt="side - Abschnitt 3" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Nick Fewings
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-de-2">
+                        <p class="emphasis-text">Besucher können eine geführte Bootstour durch die erste Ebene der Höhle unternehmen, um atemberaubende Stalaktiten und das unheimliche, türkisfarbene Spiegelbild des unterirdischen Wassers zu erleben.</p>
+                        <p class="emphasis-text">ESSEN &amp; ESSEN Die türkische Küche in Side ist ein Fest frischer Meeresfrüchte und traditioneller anatolischer Aromen.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Empfohlene RestaurantsQ Beach Restaurant &amp; Lounge</h4>
+                        <p class="emphasis-text">Bekannt für seine gehobene Strandatmosphäre, ist dies der Ort für mediterrane Fusionsgerichte wie Knoblauchgarnelen und gegrillten Lachs.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Side Orfoz</h4>
+                        <p class="emphasis-text">Ein Grundnahrungsmittel für Meeresfrüchteliebhaber in der Antike
+ Stadt.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Ihr „gemischtes Fischtablett“ ist ein lokaler Favorit und bietet den mit ägäischen Kräutern zubereiteten Fang des Tages.Azumare Lounge: In der Nähe des Hafens gelegen, bietet es die beste Aussicht auf den Apollontempel.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Er ist ideal für einen „Sundowner“-Cocktail, begleitet von einer Auswahl an Meze.Lokale Spezialitäten zum ProbierenGözleme: Herzhafte türkische Pfannkuchen, handgerollt und gefüllt mit Spinat, Feta oder gewürztem Hackfleisch.Antalya Style Piyaz: Ein in dieser Region einzigartiger weißer Bohnensalat, angerichtet mit einer reichhaltigen Tahini-, Zitronen- und Knoblauchsauce.Frischer Granatapfelsaft: Zu Ehren des Namensgebers der Stadt pressen Händler in der gesamten Altstadt frischen Saft
+ täglich.3-TÄGIGE REISEPROGRAMMTag 1: Das Herz der AntikeMorgen: Beginnen Sie am Nymphäum und gehen Sie durch das Vespasian-Tor in die Altstadt.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Verbringen Sie 2 Stunden damit, das Antike Theater zu erkunden.</p>
+                        <button class="view-all-btn" onclick="toggleViewAll('section-de-2')"><i class="fas fa-chevron-down"></i> View All</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-info-circle"></i> Abschnitt 4</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg" alt="side - Abschnitt 4" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Stefan Gogov
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-de-3">
+                        <p class="emphasis-text">Anschließend begeben Sie sich zum West Beach zum Schwimmen und für ein spätes Mittagessen in einem Strandcafé.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Abends</h4>
+                        <p class="emphasis-text">Gehen Sie zur Spitze der Halbinsel, um den Sonnenuntergang am Apollontempel zu beobachten.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Anschließend genießen Sie ein Meeresfrüchte-Abendessen im Hafen.Tag 2</h4>
+                        <p class="emphasis-text">Fluss und StromschnellenMorgen: Machen Sie eine Bootsfahrt auf dem Manavgat-Fluss.</p>
+                        <p class="emphasis-text">Machen Sie Halt am Manavgat-Wasserfall für Fotos und einen traditionellen türkischen Tee.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Nachmittag</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Stöbern Sie auf dem Manavgat-Basar (am besten montags und donnerstags) nach Gewürzen, Textilien und lokalem Kunsthandwerk.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Abends: Kehren Sie für einen entspannten Abend nach Side zurück.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Erkunden Sie die Gegend „Neustadt“ für Live-Musik und ein modernes türkisches Abendessen.Tag 3: Abenteuer und BergeMorgen: Machen Sie einen Tagesausflug zum Köprülü-Canyon zum Wildwasser-Rafting oder besuchen Sie die antike Stadt Selge.Nachmittag: Auf dem Rückweg halten Sie an der Altınbeşik-Höhle, um den unterirdischen See zu besichtigen.Abend: Genießen Sie ein Abschiedsessen in der Azumare Lounge und genießen Sie ein letztes Mal die mediterrane Brise.PRAKTISCHE TIPPSTransportDolmuş: Diese
+ Lokale Kleinbusse sind die effizienteste Möglichkeit, zwischen Side und Manavgat zu reisen.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Sie verkehren häufig und sind sehr erschwinglich.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Zu Fuß</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Die Altstadt (Antik Kent) ist vollständig fußgängerfreundlich und lässt sich am besten zu Fuß erkunden.</p>
+                        <h4 class="mini-header expandable-content" style="display: none;"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Taxis</h4>
+                        <p class="emphasis-text expandable-content" style="display: none;">Stehen jederzeit zur Verfügung, vereinbaren Sie jedoch einen Preis oder stellen Sie sicher, dass der Taxameter läuft, bevor Sie Ihre Reise beginnen.</p>
+                        <button class="view-all-btn" onclick="toggleViewAll('section-de-3')"><i class="fas fa-chevron-down"></i> View All</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-map-marked-alt"></i> Abschnitt 5</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg" alt="side - Abschnitt 5" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Tom Podmor
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-de-4">
+                        <p class="emphasis-text">Im Juli und August kann es zu Temperaturen über 35 °C (95 °F) kommen.Budget und SicherheitWährung: Die türkische Lira (TRY) ist die offizielle Währung.</p>
+                        <p class="emphasis-text">Während viele Orte Euro akzeptieren, erhalten Sie mit Lira einen besseren Preis.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Sicherheit</h4>
+                        <p class="emphasis-text">Side ist für Touristen sehr sicher, es sollten jedoch die üblichen Vorsichtsmaßnahmen gegen Taschendiebstahl auf überfüllten Basaren getroffen werden.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Kulturelle Etikette</h4>
+                        <p class="emphasis-text">Stellen Sie beim Besuch von Moscheen (wie der Zentralmoschee von Manavgat) sicher, dass Schultern und Knie bedeckt sind.</p>
+                        <p class="emphasis-text expandable-content" style="display: none;">Es ist üblich, vor dem Betreten die Schuhe auszuziehen.</p>
+                        <button class="view-all-btn" onclick="toggleViewAll('section-de-4')"><i class="fas fa-chevron-down"></i> View All</button>
+                    </div>
+                </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Reiseinformationen</h2>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-list"></i> Eigenschaft</th>
+                            <th><i class="fas fa-check-circle"></i> Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tag" style="color: #667eea;"></i> Kategorie</td>
+                            <td><span class="badge badge-info">Touren &amp; Aktivitäten</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-star" style="color: #f59e0b;"></i> Bewertung</td>
+                            <td><strong>⭐⭐⭐⭐</strong> <span style="color: #10b981; font-weight: 700;">(4.5/5.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-dollar-sign" style="color: #10b981;"></i> Preisklasse</td>
+                            <td><span class="badge badge-success">₺₺ - ₺₺₺</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-clock" style="color: #3b82f6;"></i> Beste Jahreszeit</td>
+                            <td>Frühling &amp; Sommer (April - September)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-users" style="color: #7c3aed;"></i> Geeignet für</td>
+                            <td>Familien, Paare, Alleinreisende</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-utensils" style="color: #ef4444;"></i> Wo man essen kann</td>
+                            <td>
+                                <div style="max-height: 300px; overflow-y: auto; padding: 5px;">
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>1. Moonlight Restaurant Side</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7678,31.3895" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7678, 31.3895)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>2. Ocakbaşı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7685,31.3912" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7685, 31.3912)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>3. Sound of the Sea</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.7)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Seafood | ₺₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7692,31.3928" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7692, 31.3928)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>4. Aphrodite Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Mediterranean | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7671,31.3883" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7671, 31.3883)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>5. Conny&#x27;s Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.3)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7699,31.3945" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7699, 31.3945)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>6. Saraylı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Cuisine | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7665,31.3871" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7665, 31.3871)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>7. Beach House Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Beach &amp; Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7708,31.3967" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7708, 31.3967)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>8. Sidelya Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; Fish | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7687,31.3901" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7687, 31.3901)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>9. Köfteci Ramiz</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.2)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Meatballs &amp; Turkish | ₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7674,31.3889" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7674, 31.3889)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>10. Tuana Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Traditional | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7695,31.3934" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7695, 31.3934)</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-money-bill-wave" style="color: #10b981;"></i> Geldwechsel</td>
+                            <td>Banken, Geldautomaten (weit verbreitet), Wechselstuben im Side Zentrum, Hotels. Währung: Türkische Lira (₺/TRY)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-shopping-cart" style="color: #f59e0b;"></i> Einkaufen</td>
+                            <td>Side lokale Märkte, Wochenmarkt, Einkaufszentren, Souvenirläden, Kunsthandwerksgeschäfte</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-bus" style="color: #3b82f6;"></i> Transport</td>
+                            <td>Dolmuş (Sammeltaxi), Lokale Busse in Side, Taxis (mit Taxameter), Autovermietung, Fahrradverleih</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-language" style="color: #764ba2;"></i> Sprache</td>
+                            <td>Türkisch (Hauptsprache), Englisch in Touristengebieten, Deutsch und Russisch in Küstenregionen verbreitet</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-info-circle" style="color: #667eea;"></i> Touristeninformation</td>
+                            <td>Side Touristeninformationsbüro, Hotelconcierge-Service, Lokale Reiseveranstalter, Online-Reiseressourcen</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+							
+            </div>
+        </div>
+        <div class="lang-content " id="content-ru">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Полный путеводитель по Сиде</h2>
+                <div class="card-description" id="desc-ru">
+                    <span class="desc-preview">Сиде, Турция: полный путеводитель по Гранатовому побережью Расположенный на залитом солнцем полуострове вдоль Турецкой Ривьеры, Сиде (произносится как си-де) представляет собой редкую жемчужину, где древняя история сосуществует с современной роскошью.
+ Когда-то это был крупный порт в Памфилии, его название переводится как «гранат», символ изобилия, который звучит актуально и сегодня.
+ Гуляете ли вы по застекленным улицам, открывающим вид на римские руины, или отдыхаете на золотом песке, Сиде предлагает опьяняющее сочетание культурной глубины и средиземноморской релаксации. ТОП МЕСТА ДЛЯ ПОСЕЩЕНИЯ1.
+ Храм Аполлона и Афины Храм Аполлона, расположенный на самой оконечности полуострова Сиде, является самым знаковым силуэтом города.
+ Построенный около 150 года нашей эры, его массивные коринфски...</span>
+                    <span class="desc-full" style="display: none;">Сиде, Турция: полный путеводитель по Гранатовому побережью Расположенный на залитом солнцем полуострове вдоль Турецкой Ривьеры, Сиде (произносится как си-де) представляет собой редкую жемчужину, где древняя история сосуществует с современной роскошью.
+ Когда-то это был крупный порт в Памфилии, его название переводится как «гранат», символ изобилия, который звучит актуально и сегодня.
+ Гуляете ли вы по застекленным улицам, открывающим вид на римские руины, или отдыхаете на золотом песке, Сиде предлагает опьяняющее сочетание культурной глубины и средиземноморской релаксации. ТОП МЕСТА ДЛЯ ПОСЕЩЕНИЯ1.
+ Храм Аполлона и Афины Храм Аполлона, расположенный на самой оконечности полуострова Сиде, является самым знаковым силуэтом города.
+ Построенный около 150 года нашей эры, его массивные коринфские колонны обрамляют Средиземное море, создавая фон мирового класса для заката.
+ Рядом находятся руины Храма Афины, отличающиеся замысловатыми фризами с изображением голов Медузы.2.
+ Античный театр СидеЭтот римский театр II века является одним из наиболее хорошо сохранившихся в Турции.
+ В отличие от многих театров той эпохи, построенных на склонах холмов, это сооружение было отдельно стоящим, поддерживаемым массивными сводчатыми арками.
+ Вместимостью почти 15 000 человек когда-то здесь проводились гладиаторские бои и театральные представления.
+ Вид с верхнего яруса открывает потрясающую панораму древнего города и моря.3.
+ Археологический музей Сиде. Этот музей, расположенный в отреставрированной римской бане V века, представляет собой мастер-класс по созданию атмосферы.
+ Коллекция включает изысканные саркофаги, римские статуи и эллинистические монеты, обнаруженные во время местных раскопок.
+ Прогулка по каменным залам бывших бань добавляет слой исторического погружения, которого часто не хватает современным галереям.
+ Нимфей (монументальный фонтан) Этот величественный трехэтажный фонтан, расположенный недалеко от главных городских ворот, когда-то распределял воду по акведукам из реки Манавгат.
+ Даже в разрушенном состоянии богато украшенная резьба и масштабы сооружения свидетельствуют о богатстве и инженерном мастерстве древних времен.</span>
+                    <button class="view-all-btn" onclick="toggleDescription('desc-ru')" style="margin-top: 1rem;"><i class="fas fa-chevron-down"></i> Read More</button>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-compass"></i> Обзор</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg" alt="side - Обзор" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Dmitri Sumar
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-ru-0">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-star"></i> Раздел 2</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg" alt="side - Раздел 2" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Kub-Liz
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-ru-1">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-heart"></i> Раздел 3</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg" alt="side - Раздел 3" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Nick Fewings
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-ru-2">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-info-circle"></i> Раздел 4</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg" alt="side - Раздел 4" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Stefan Gogov
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-ru-3">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-map-marked-alt"></i> Раздел 5</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg" alt="side - Раздел 5" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Tom Podmor
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-ru-4">
+                    </div>
+                </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Туристическая информация</h2>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-list"></i> Свойство</th>
+                            <th><i class="fas fa-check-circle"></i> Детали</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tag" style="color: #667eea;"></i> Категория</td>
+                            <td><span class="badge badge-info">Туры и мероприятия</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-star" style="color: #f59e0b;"></i> Рейтинг</td>
+                            <td><strong>⭐⭐⭐⭐</strong> <span style="color: #10b981; font-weight: 700;">(4.5/5.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-dollar-sign" style="color: #10b981;"></i> Ценовой диапазон</td>
+                            <td><span class="badge badge-success">₺₺ - ₺₺₺</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-clock" style="color: #3b82f6;"></i> Лучший сезон</td>
+                            <td>Весна и лето (апрель - сентябрь)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-users" style="color: #7c3aed;"></i> Подходит для</td>
+                            <td>Семьи, пары, одиночные путешественники</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-utensils" style="color: #ef4444;"></i> Где поесть</td>
+                            <td>
+                                <div style="max-height: 300px; overflow-y: auto; padding: 5px;">
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>1. Moonlight Restaurant Side</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7678,31.3895" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7678, 31.3895)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>2. Ocakbaşı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7685,31.3912" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7685, 31.3912)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>3. Sound of the Sea</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.7)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Seafood | ₺₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7692,31.3928" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7692, 31.3928)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>4. Aphrodite Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Mediterranean | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7671,31.3883" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7671, 31.3883)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>5. Conny&#x27;s Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.3)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7699,31.3945" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7699, 31.3945)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>6. Saraylı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Cuisine | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7665,31.3871" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7665, 31.3871)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>7. Beach House Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Beach &amp; Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7708,31.3967" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7708, 31.3967)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>8. Sidelya Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; Fish | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7687,31.3901" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7687, 31.3901)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>9. Köfteci Ramiz</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.2)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Meatballs &amp; Turkish | ₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7674,31.3889" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7674, 31.3889)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>10. Tuana Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Traditional | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7695,31.3934" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7695, 31.3934)</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-money-bill-wave" style="color: #10b981;"></i> Обмен валюты</td>
+                            <td>Банки, банкоматы (широко доступны), обменные пункты в центре Side, отели. Валюта: турецкая лира (₺/TRY)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-shopping-cart" style="color: #f59e0b;"></i> Покупки</td>
+                            <td>Местные рынки Side, еженедельный базар, торговые центры, сувенирные магазины, магазины ремесел</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-bus" style="color: #3b82f6;"></i> Транспорт</td>
+                            <td>Долмуш (маршрутное такси), местные автобусы в Side, такси (по счетчику), аренда автомобилей, прокат велосипедов</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-language" style="color: #764ba2;"></i> Язык</td>
+                            <td>Турецкий (основной), английский в туристических районах, немецкий и русский распространены в прибрежных регионах</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-info-circle" style="color: #667eea;"></i> Туристическая информация</td>
+                            <td>Туристический информационный офис Side, услуги консьержа отеля, местные туроператоры, онлайн-ресурсы для путешественников</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+							
+            </div>
+        </div>
+        <div class="lang-content " id="content-uk">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-book-open"></i> Повний путівник по Сіде</h2>
+                <div class="card-description" id="desc-uk">
+                    <span class="desc-preview">Сіде, Туреччина: найкращий путівник по гранатовому узбережжю. Розташоване на залитому сонцем півострові вздовж Турецької Рив’єри, Сіде (вимовляється як се-де) є рідкісною перлиною, де співіснують давня історія та сучасна розкіш.
+ Колись це був великий порт у Памфілії, його назва перекладається як «гранат», символ достатку, який звучить і сьогодні.
+ Незалежно від того, чи гуляєте ви оздобленими скляними панелями вулицями, на яких відкриваються римські руїни, чи відпочиваєте на золотих пісках, Сіде пропонує п’янке поєднання культурної глибини та середземноморського відпочинку. НАЙКРАЩІ МІСЦЯ ДЛЯ ВІДВІДАТИ1.
+ Храм Аполлона й Афіни. Храм Аполлона, що стоїть на самій вершині півострова Сіде, є найвідомішим силуетом міста.
+ Побудований близько 150 року нашої ери, його масивні коринфські колони о...</span>
+                    <span class="desc-full" style="display: none;">Сіде, Туреччина: найкращий путівник по гранатовому узбережжю. Розташоване на залитому сонцем півострові вздовж Турецької Рив’єри, Сіде (вимовляється як се-де) є рідкісною перлиною, де співіснують давня історія та сучасна розкіш.
+ Колись це був великий порт у Памфілії, його назва перекладається як «гранат», символ достатку, який звучить і сьогодні.
+ Незалежно від того, чи гуляєте ви оздобленими скляними панелями вулицями, на яких відкриваються римські руїни, чи відпочиваєте на золотих пісках, Сіде пропонує п’янке поєднання культурної глибини та середземноморського відпочинку. НАЙКРАЩІ МІСЦЯ ДЛЯ ВІДВІДАТИ1.
+ Храм Аполлона й Афіни. Храм Аполлона, що стоїть на самій вершині півострова Сіде, є найвідомішим силуетом міста.
+ Побудований близько 150 року нашої ери, його масивні коринфські колони обрамляють Середземне море, пропонуючи фон світового рівня для заходу сонця.
+ Поруч лежать залишки храму Афіни, вирізняються складними фризами з головами Медуз.2.
+ Античний театр СідеЦей римський театр 2-го століття є одним із найкраще збережених у Туреччині.
+ На відміну від багатьох театрів тієї епохи, побудованих на схилах пагорбів, ця будівля була окремо стоячою і підтримувалася масивними склепінчастими арками.
+ З місткістю майже 15 000 місць, колись він приймав гладіаторські бої та театральні вистави.
+ З верхнього ярусу відкривається шикарна панорама стародавнього міста і моря.3.
+ Археологічний музей Сіде Цей музей, розташований у відреставрованій римській лазні V століття, є майстер-класом зі створення атмосфери.
+ Колекція включає вишукані саркофаги, римські статуї та елліністичні монети, виявлені під час місцевих розкопок.
+ Прогулянка кам&#x27;яними залами колишніх лазень додає шар історичного занурення, якого часто бракує сучасним галереям.4.
+ Німфеум (монументальний фонтан) Розташований біля головних міських воріт, цей грандіозний триповерховий фонтан колись подавав воду через акведуки з річки Манавгат.
+ Навіть у зруйнованому стані ошатне різьблення та масштаб споруди свідчать про багатство та інженерну майстерність стародавніх</span>
+                    <button class="view-all-btn" onclick="toggleDescription('desc-uk')" style="margin-top: 1rem;"><i class="fas fa-chevron-down"></i> Read More</button>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-compass"></i> Огляд</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg" alt="side - Огляд" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Dmitri Sumar
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-uk-0">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-star"></i> Розділ 2</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg" alt="side - Розділ 2" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Kub-Liz
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-uk-1">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-heart"></i> Розділ 3</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg" alt="side - Розділ 3" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Nick Fewings
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-uk-2">
+                        <p class="emphasis-text">Відвідувачі можуть здійснити екскурсію на човні першим рівнем печери, щоб побачити приголомшливі сталактити та моторошне бірюзове відображення підземних вод. ЇЖА ТА ЇДА Турецька кухня в Сіде — це свято свіжих морепродуктів і традиційних анатолійських смаків. Рекомендовані ресторани Q Beach Restaurant &amp; Lounge: відомий своєю вишуканою атмосферою на пляжі, це
+ місце для середземноморських страв ф’южн, таких як креветки з часником і смажений лосось.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>Side Orfoz</h4>
+                        <p class="emphasis-text">основний продукт для любителів морепродуктів у Старому місті.
+ Їхній &quot;мішаний рибний лоток&quot; є фаворитом місцевих жителів, де представлений улов дня, приготований з егейськими травами. Лаунж Azumare: розташований біля гавані, звідки відкривається найкращий вид на храм Аполлона.
+ Він ідеально підходить для коктейлю «Sundowner» у супроводі вибору Meze. Місцеві фірмові страви, які варто спробувати Gözleme: пікантні турецькі млинці, згорнуті вручну та наповнені шпинатом, фетою або пряним фаршем.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-info-circle"></i> Section 4</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg" alt="side - Section 4" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Stefan Gogov
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-uk-3">
+                    </div>
+                </div>
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-map-marked-alt"></i> Розділ 5</h3>
+                    <div style="margin: 1.5rem 0; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); position: relative;">
+                        <div style="cursor: pointer;" onclick="openLightbox('https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg')">
+                            <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg" alt="side - Розділ 5" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                        <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; backdrop-filter: blur(10px);">
+                            <i class="fas fa-camera"></i> Photo by Tom Podmor
+                        </div>
+                    </div>
+                    <div class="section-content" id="section-uk-4">
+                        <p class="emphasis-text">July and August can see temperatures exceeding 35°C (95°F).Budget &amp; SafetyCurrency: The Turkish Lira (TRY) is the official currency.</p>
+                        <h4 class="mini-header"><i class="fas fa-star" style="font-size: 0.875rem; margin-right: 0.5rem;"></i>While many places accept Euros, you will get a better rate using Lira.Safety</h4>
+                        <p class="emphasis-text">Side is very safe for tourists, though usual precautions against pickpocketing in crowded bazaars should be taken.Cultural Etiquette: When visiting mosques (like the Manavgat Central Mosque), ensure shoulders and knees are covered.</p>
+                    </div>
+                </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-info-circle"></i> Туристична інформація</h2>
+                
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-list"></i> Властивість</th>
+                            <th><i class="fas fa-check-circle"></i> Деталі</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tag" style="color: #667eea;"></i> Категорія</td>
+                            <td><span class="badge badge-info">Тури та заходи</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-star" style="color: #f59e0b;"></i> Рейтинг</td>
+                            <td><strong>⭐⭐⭐⭐</strong> <span style="color: #10b981; font-weight: 700;">(4.5/5.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-dollar-sign" style="color: #10b981;"></i> Ціновий діапазон</td>
+                            <td><span class="badge badge-success">₺₺ - ₺₺₺</span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-clock" style="color: #3b82f6;"></i> Найкращий сезон</td>
+                            <td>Весна та літо (квітень - вересень)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-users" style="color: #7c3aed;"></i> Підходить для</td>
+                            <td>Сім&#x27;ї, пари, одинокі мандрівники</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-utensils" style="color: #ef4444;"></i> Де поїсти</td>
+                            <td>
+                                <div style="max-height: 300px; overflow-y: auto; padding: 5px;">
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>1. Moonlight Restaurant Side</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7678,31.3895" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7678, 31.3895)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>2. Ocakbaşı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7685,31.3912" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7685, 31.3912)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>3. Sound of the Sea</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.7)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Seafood | ₺₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7692,31.3928" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7692, 31.3928)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>4. Aphrodite Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Mediterranean | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7671,31.3883" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7671, 31.3883)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>5. Conny&#x27;s Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.3)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> International | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7699,31.3945" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7699, 31.3945)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>6. Saraylı Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Cuisine | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7665,31.3871" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7665, 31.3871)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>7. Beach House Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.4)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Beach &amp; Grill | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7708,31.3967" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7708, 31.3967)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>8. Sidelya Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.6)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish &amp; Fish | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7687,31.3901" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7687, 31.3901)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>9. Köfteci Ramiz</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.2)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Meatballs &amp; Turkish | ₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7674,31.3889" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7674, 31.3889)</a>
+                                    </div>
+                                    <div style="margin-bottom: 8px; padding: 8px; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #ef4444;">
+                                        <strong>10. Tuana Restaurant</strong> <span style="color: #f59e0b;">⭐⭐⭐⭐</span> (4.5)
+                                        <br><span style="color: #666; font-size: 0.9em;"><i class="fas fa-utensils"></i> Turkish Traditional | ₺₺</span>
+                                        <br><a href="https://www.google.com/maps?q=36.7695,31.3934" target="_blank" style="color: #3b82f6; font-size: 0.85em;"><i class="fas fa-map-marker-alt"></i> View on Google Maps (36.7695, 31.3934)</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-money-bill-wave" style="color: #10b981;"></i> Обмін валюти</td>
+                            <td>Банки, банкомати (широко доступні), обмінні пункти в центрі Side, готелі. Валюта: турецька ліра (₺/TRY)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-shopping-cart" style="color: #f59e0b;"></i> Покупки</td>
+                            <td>Місцеві ринки Side, щотижневий базар, торгові центри, сувенірні магазини, крамниці ремесел</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-bus" style="color: #3b82f6;"></i> Транспорт</td>
+                            <td>Долмуш (маршрутне таксі), місцеві автобуси в Side, таксі (за лічильником), оренда автомобілів, прокат велосипедів</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-language" style="color: #764ba2;"></i> Мова</td>
+                            <td>Турецька (основна), англійська в туристичних районах, німецька та російська поширені в прибережних регіонах</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-info-circle" style="color: #667eea;"></i> Туристична інформація</td>
+                            <td>Туристичний інформаційний офіс Side, послуги консьєржа готелю, місцеві туроператори, онлайн-ресурси для подорожуючих</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+							
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="card-title"><i class="fas fa-chart-bar"></i> Quick Stats & Analytics</h2>
+            
+            <!-- Visual Stats with Progress Bars -->
+            <div style="margin: 2rem 0;">
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;"><i class="fas fa-book"></i> Content Sections</span>
+                        <span style="color: #667eea; font-weight: 700;">5</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 10px; height: 20px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); height: 100%; width: 50%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;"><i class="fas fa-language"></i> Languages Available</span>
+                        <span style="color: #10b981; font-weight: 700;">5</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 10px; height: 20px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, #10b981 0%, #059669 100%); height: 100%; width: 100%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;"><i class="fas fa-utensils"></i> Restaurant Recommendations</span>
+                        <span style="color: #ef4444; font-weight: 700;">10</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 10px; height: 20px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%); height: 100%; width: 100%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;"><i class="fas fa-star"></i> Average Rating</span>
+                        <span style="color: #f59e0b; font-weight: 700;">4.5/5.0</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 10px; height: 20px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%); height: 100%; width: 90.0%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="font-weight: 600;"><i class="fas fa-images"></i> Gallery Images</span>
+                        <span style="color: #3b82f6; font-weight: 700;">5</span>
+                    </div>
+                    <div style="background: #e5e7eb; border-radius: 10px; height: 20px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%); height: 100%; width: 16.65%; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Summary Cards -->
+            <div class="stats-grid">
+                <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Sections</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color: white;">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Restaurants</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
+                    <div class="stat-number">4.5</div>
+                    <div class="stat-label">Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-icon">
+            <i class="fas fa-plane"></i>
+        </div>
+        <p style="font-size: 1.25rem; font-weight: 700;">✈️ AI-Powered Travel Content</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">Explore the world, one destination at a time</p>
+        <p style="margin-top: 1.5rem;">
+            <a href="https://www.holidayiscalling.com/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.75rem; background: white; color: #667eea; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <i class="fas fa-globe"></i>
+                <span>Visit holidayiscalling.com for more travel guides</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </p>
+        <p style="margin-top: 1.5rem; opacity: 0.6; font-size: 0.875rem;">
+            <i class="fas fa-heart" style="color: #ef4444;"></i> Made with love for travelers
+        </p>
+    </footer>
+    
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close"><i class="fas fa-times"></i></span>
+        <img id="lightbox-img" src="" alt="Full size image">
+    </div>
+    
+    <script>
+        function switchLanguage(langCode) {
+            // Hide all content
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById('content-' + langCode).classList.add('active');
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.lang-btn').classList.add('active');
+            
+            // Smooth scroll to content
+            window.scrollTo({ top: 400, behavior: 'smooth' });
+        }
+        
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+        
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Add parallax effect to hero
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            if (hero) {
+                hero.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
+            }
+        });
+        
+        // Toggle View All functionality
+        function toggleViewAll(sectionId) {
+            const section = document.getElementById(sectionId);
+            const expandableItems = section.querySelectorAll('.expandable-content');
+            const button = section.querySelector('.view-all-btn');
+            
+            if (button.classList.contains('expanded')) {
+                // Collapse
+                expandableItems.forEach(item => {
+                    item.style.display = 'none';
+                });
+                button.classList.remove('expanded');
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> View All';
+            } else {
+                // Expand
+                expandableItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                button.classList.add('expanded');
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
+            }
+        }
+        
+        // Toggle description expand/collapse
+        function toggleDescription(descId) {
+            const descContainer = document.getElementById(descId);
+            const preview = descContainer.querySelector('.desc-preview');
+            const full = descContainer.querySelector('.desc-full');
+            const button = descContainer.querySelector('.view-all-btn');
+            
+            if (button.classList.contains('expanded')) {
+                // Collapse - show preview
+                preview.style.display = 'inline';
+                full.style.display = 'none';
+                button.classList.remove('expanded');
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> Read More';
+            } else {
+                // Expand - show full
+                preview.style.display = 'none';
+                full.style.display = 'inline';
+                button.classList.add('expanded');
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
+            }
+        }
+    </script>
+</body>
+</html>
