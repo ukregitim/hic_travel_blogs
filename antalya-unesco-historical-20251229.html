@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ UNESCO & Historical Places | Antalya</title>
+    <meta name="description" content="Discover unesco & historical places in Antalya. Your complete guide.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #f97316;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--accent) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .hero-subtitle { font-size: 1.25rem; opacity: 0.9; margin-bottom: 1rem; }
+        .hero-meta { font-size: 0.9rem; opacity: 0.8; }
+        
+        /* Main */
+        .main-content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        
+        /* Article Card */
+        .article-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            margin-top: -2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .article-body { padding: 2.5rem; }
+        
+        /* Photo Gallery */
+        .photo-gallery {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .gallery-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.75rem;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover { transform: scale(1.05); }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Sections */
+        .section { margin-bottom: 2.5rem; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .section-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .section-body p:last-child { margin-bottom: 0; }
+        .section-body strong { color: var(--primary-dark); }
+        
+        /* Footer */
+        .article-footer {
+            background: var(--bg-secondary);
+            padding: 1.5rem 2.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .footer-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.75rem; }
+            .article-body { padding: 1.5rem; }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .article-footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-icon">🏛️</div>
+        <h1>UNESCO & Historical Places</h1>
+        <p class="hero-subtitle">Antalya</p>
+        <p class="hero-meta"><i class="fas fa-calendar"></i> 2025-12-29 · 3 sections</p>
+    </div>
+    
+    <main class="main-content">
+        <article class="article-card">
+            <div class="photo-gallery">
+                <h3 class="gallery-title"><i class="fas fa-images"></i> Photo Gallery</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_igor_sporynin.jpg')">
+                        <img src="/images/antalya/antalya_igor_sporynin.jpg" alt="Antalya photo 1" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_berthan_colgecen_2.jpg')">
+                        <img src="/images/antalya/antalya_berthan_colgecen_2.jpg" alt="Antalya photo 2" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_evgeny_matveev.jpg')">
+                        <img src="/images/antalya/antalya_evgeny_matveev.jpg" alt="Antalya photo 3" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_mishel_lazarenko.jpg')">
+                        <img src="/images/antalya/antalya_mishel_lazarenko.jpg" alt="Antalya photo 4" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_erik_karits.jpg')">
+                        <img src="/images/antalya/antalya_erik_karits.jpg" alt="Antalya photo 5" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_berthan_colgecen.jpg')">
+                        <img src="/images/antalya/antalya_berthan_colgecen.jpg" alt="Antalya photo 6" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_viktor_nikolaev.jpg')">
+                        <img src="/images/antalya/antalya_viktor_nikolaev.jpg" alt="Antalya photo 7" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('/images/antalya/antalya_igor.jpg')">
+                        <img src="/images/antalya/antalya_igor.jpg" alt="Antalya photo 8" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </div>
+                </div>
+            </div>
+            <div class="article-body">
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon"><i class="fas fa-compass"></i></div>
+                        <h2 class="section-title">Xanthos And Letoon (Official Unesco Site)</h2>
+                    </div>
+                    <div class="section-body">
+                        <p>Located about 200 km west of Antalya, these twin sites were the center of the Lycian civilization.</p>
+                        <p>Xanthos: The capital of ancient Lycia, famous for its unique funerary art and pillar-mounted tombs.</p>
+                        <p>Letoon: The spiritual sanctuary of the Lycian League, dedicated to Leto and her twin children, Artemis and Apollo.</p>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon"><i class="fas fa-star"></i></div>
+                        <h2 class="section-title">Hierapolis-Pamukkale (Official Unesco Site)</h2>
+                    </div>
+                    <div class="section-body">
+                        <p>Often visited as a day trip from Antalya (~240 km), this &quot;Cotton Castle&quot; is a dual-wonder.</p>
+                        <p>Hierapolis: An ancient Roman spa city built atop the white travertine terraces. Highlights include the Frontinus Gate and one of the largest ancient Necropolises (cemeteries) in Turkey.</p>
+                        <p>The Antique Pool: You can swim in mineral-rich waters among original Roman columns that fell during an earthquake.</p>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="section-header">
+                        <div class="section-icon"><i class="fas fa-utensils"></i></div>
+                        <h2 class="section-title">Sites On The Unesco Tentative List</h2>
+                    </div>
+                    <div class="section-body">
+                        <p>Several sites in Antalya are currently nominated for full UNESCO status due to their &quot;Outstanding Universal Value&quot;:</p>
+                        <p>Perge: A massive Roman metropolis with a stunning colonnaded street and water channels.</p>
+                        <p>Aspendos: Home to the world’s best-preserved Roman theater.</p>
+                        <p>Alanya Castle &amp; Shipyard: A medieval Seljuk fortress perched on a rocky peninsula.</p>
+                        <p>Termessos: A mountain-top &quot;Eagle’s Nest&quot; that even Alexander the Great couldn&#x27;t conquer.</p>
+                        <p>🕰️ Must-Visit Historical Places in Antalya City</p>
+                        <p>You don’t have to leave the city center to experience 2,000 years of history.</p>
+                        <p>Kaleiçi (The Old Town)</p>
+                        <p>The historic heart of Antalya is a maze of narrow, cobblestone streets and Ottoman-era houses.</p>
+                        <p>Hadrian’s Gate: A triple-arched triumphal gate built in 130 AD to honor the Roman Emperor Hadrian’s visit.</p>
+                        <p>Yivli Minaret: The &quot;Fluted Minaret,&quot; an iconic 13th-century Seljuk landmark.</p>
+                        <p>Hıdırlık Tower: A circular Roman tower overlooking the harbor, likely used as a lighthouse or fortification.</p>
+                        <p>Antalya Archaeological Museum</p>
+                        <p>One of Turkey&#x27;s most important museums. It houses the &quot;Hall of Gods,&quot; featuring incredible Roman statues salvaged from Perge, and the &quot;Heracles Sarcophagus.&quot;</p>
+                        <p>🏺 The &quot;Golden Triangle&quot; of Ancient Cities</p>
+                        <p>Most travelers visit these three sites in a single-day loop east of the city:</p>
+                        <p>Site Highlight Why Visit?</p>
+                        <p>Perge The Stadium &amp; Baths Walk through a city that looks exactly like it did in the 2nd century.</p>
+                        <p>Aspendos The Great Theater Test the acoustics; a whisper on stage can be heard in the top row.</p>
+                        <p>Side Temple of Apollo A coastal city where ancient ruins are integrated into a modern town.</p>
+                        <p>⛰️ Hidden Gems &amp; Coastal Ruins</p>
+                        <p>If you prefer nature mixed with history, head west towards Kemer and Kas.</p>
+                        <p>Phaselis: An ancient port city located inside a national park. You can swim in three different Roman harbors and walk through an aqueduct-lined forest.</p>
+                        <p>Olympos &amp; Chimaera: Famous for its &quot;Eternal Flames&quot; (Yanartaş) that leak from the earth. The ruins are overgrown and atmospheric, sitting right on a pebbly beach.</p>
+                        <p>Myra (Demre): Famous for the Rock Tombs carved into the cliffs and the Church of St. Nicholas (the real-life inspiration for Santa Claus).</p>
+                        <p>Pro-Tip: The Museum Pass</p>
+                        <p>If you plan on visiting more than three of these sites, buy the Museum Pass Mediterranean. It lasts for 7 days and covers entrance fees for almost all the locations mentioned above, allowing you to skip the ticket lines.</p>
+                        <p>Antalya is often called the &quot;Turkish Riviera,&quot; but beyond its luxury resorts lies a landscape densely packed with ancient civilizations. The region was a crossroads for the Hittites, Greeks, Romans, Seljuks, and Ottomans, leaving behind some of the best-preserved ruins in the Mediterranean.</p>
+                        <p>🏛️ UNESCO World Heritage Sites</p>
+                        <p>While the city of Antalya itself is a gateway, there are several sites in and around the province that hold official UNESCO status or are currently on the &quot;Tentative List&quot; (waiting for final approval).</p>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="article-footer">
+                <div class="footer-brand">
+                    <span>🌍</span> Holiday is Calling
+                </div>
+                <div class="footer-date">
+                    Generated on 2025-12-29
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+</body>
+</html>
