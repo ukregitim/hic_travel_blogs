@@ -1,0 +1,416 @@
+<!-- Blog Content: Best Restaurants - Side -->
+<!-- Generated: 2025-12-31 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <!-- Hero Slider -->
+    <div class="hic-hero-slider">
+        <div class="hic-hero-slides" id="hicHeroSlides">
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_stefan_gogov.jpg" alt="Side - Photo 1">
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_anton_etmanov.jpg" alt="Side - Photo 2">
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_nick_fewings.jpg" alt="Side - Photo 3">
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_dmitri_sumar.jpg" alt="Side - Photo 4">
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_kub-liz.jpg" alt="Side - Photo 5">
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_olga_pro.jpg" alt="Side - Photo 6">
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/side_tom_podmor.jpg" alt="Side - Photo 7">
+            </div>
+        </div>
+        
+        <!-- Centered Text Overlay -->
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Side</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🍽️</span>Best Restaurants</p>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">&#10094;</button>
+        <button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">&#10095;</button>
+        
+        <!-- Dots -->
+        <div class="hic-hero-dots" id="hicHeroDots">
+            <button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(1)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(2)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(3)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(4)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(5)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(6)"></button>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Top 10 Restaurants In Side</h3>
+            <div class="hic-section-content">
+                <p>These are the heavy hitters—the spots that consistently deliver on flavor, service, and atmosphere.</p>
+                <p>Restaurant Cuisine Price Range Signature Dish</p>
+                <p>Side House Cafe Contemporary Turkish $$ Lamb Tandir (Slow Roasted)</p>
+                <p>Cihan Pide Kebap Traditional Turkish $ Adana Kebap &amp; Pistachio Pide</p>
+                <p>Gül Restaurant Turkish Home Cooking $$ Ottoman-style Casseroles</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Fine Dining: Upscale &amp; Elegant</h3>
+            <div class="hic-section-content">
+                <p>For those &quot;dress-up&quot; nights where the service is as polished as the silverware.</p>
+                <p>Elia Restaurant &amp; Lounge: Arguably the most sophisticated spot in the Old Town. It blends ancient stone architecture with modern sustainable luxury. The wine list is extensive, featuring top-tier Turkish labels from the Aegean region.</p>
+                <p>Karma Restaurant &amp; Night Club: While it turns into a high-end club late at night, the dinner service is impeccable. It offers a cosmopolitan vibe with a menu that bridges the gap between East and West.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Local Favorites: Authentic &amp; Affordable</h3>
+            <div class="hic-section-content">
+                <p>Where the residents of Side and Manavgat actually go when they want a &quot;real&quot; meal.</p>
+                <p>Cihan Pide Kebap: Forget the fancy garnishes; this is about the meat. Known for having the best pide (Turkish pizza) in the region, it’s a high-value spot where the portions are generous and the flavors are rooted in tradition.</p>
+                <p>Meşhur49 Pide Kebap: A legendary local haunt. It’s unpretentious, fast, and incredibly fresh. Try their Lahmacun—it&#x27;s thin, crispy, and perfectly spiced.</p>
+                <p>Dedem Kasap Cızbız: A unique &quot;butcher-to-table&quot; concept. You pick your cut of meat at the counter, and they grill it to perfection right there. It’s the ultimate stop for carnivores.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Best For Views: Dinner With A Backdrop</h3>
+            <div class="hic-section-content">
+                <p>In Side, the view usually involves two things: the sparkling Mediterranean or the pillars of a 2,000-year-old temple.</p>
+                <p>Apollonik Cafe: Located literally steps from the Temple of Apollo. There is no better place in the world to sip a cocktail and watch the sun dip below the horizon through ancient columns.</p>
+                <p>Zula Side: Perched with an elevated view of the harbor, Zula offers a panoramic vista of the boats and the sea. The blue-and-white decor gives it a distinct &quot;Greek Isles&quot; feel.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Romantic Spots: Perfect For Couples</h3>
+            <div class="hic-section-content">
+                <p>Low lighting, soft music, and intimate corners.</p>
+                <p>Liman Restaurant Lounge Club: Situated in the most romantic corner of the harbor, Liman is famous for its sunset views. Request a table on the edge of the pier for a truly &quot;floating&quot; dining experience.</p>
+                <p>Azumare Lounge: If your idea of romance is a quiet corner, a glass of fine Turkish red wine, and some light jazz, this is the place. It’s tucked away from the main tourist strip, making it feel like a secret discovery.</p>
+                <p>Nestled along the turquoise shores of the Mediterranean, Side is a culinary treasure trove where ancient Roman ruins meet modern gastronomy. Whether you’re looking for a candlelit dinner by the Temple of Apollo or a bustling local kebab house, this guide covers the absolute best of Side&#x27;s dining scene in 2025.</p>
+                <p>Low lighting, soft music, and intimate corners.</p>
+                <p>Liman Restaurant Lounge Club: Situated in the most romantic corner of the harbor, Liman is famous for its sunset views. Request a table on the edge of the pier for a truly &quot;floating&quot; dining experience.</p>
+                <p>Azumare Lounge: If your idea of romance is a quiet corner, a glass of fine Turkish red wine, and some light jazz, this is the place. It’s tucked away from the main tourist strip, making it feel like a secret discovery.</p>
+                <p>Nestled along the turquoise shores of the Mediterranean, Side is a culinary treasure trove where ancient Roman ruins meet modern gastronomy. Whether you’re looking for a candlelit dinner by the Temple of Apollo or a bustling local kebab house, this guide covers the absolute best of Side&#x27;s dining scene in 2025.</p>
+                <p>Low lighting, soft music, and intimate corners.</p>
+                <p>Liman Restaurant Lounge Club: Situated in the most romantic corner of the harbor, Liman is famous for its sunset views. Request a table on the edge of the pier for a truly &quot;floating&quot; dining experience.</p>
+                <p>Azumare Lounge: If your idea of romance is a quiet corner, a glass of fine Turkish red wine, and some light jazz, this is the place. It’s tucked away from the main tourist strip, making it feel like a secret discovery.</p>
+                <p>Nestled along the turquoise shores of the Mediterranean, Side is a culinary treasure trove where ancient Roman ruins meet modern gastronomy. Whether you’re looking for a candlelit dinner by the Temple of Apollo or a bustling local kebab house, this guide covers the absolute best of Side&#x27;s dining scene in 2025.</p>
+                <p>Low lighting, soft music, and intimate corners.</p>
+                <p>Liman Restaurant Lounge Club: Situated in the most romantic corner of the harbor, Liman is famous for its sunset views. Request a table on the edge of the pier for a truly &quot;floating&quot; dining experience.</p>
+                <p>Azumare Lounge: If your idea of romance is a quiet corner, a glass of fine Turkish red wine, and some light jazz, this is the place. It’s tucked away from the main tourist strip, making it feel like a secret discovery.</p>
+                <p>Nestled along the turquoise shores of the Mediterranean, Side is a culinary treasure trove where ancient Roman ruins meet modern gastronomy. Whether you’re looking for a candlelit dinner by the Temple of Apollo or a bustling local kebab house, this guide covers the absolute best of Side&#x27;s dining scene in 2025.</p>
+                <p>Low lighting, soft music, and intimate corners.</p>
+                <p>Liman Restaurant Lounge Club: Situated in the most romantic corner of the harbor, Liman is famous for its sunset views. Request a table on the edge of the pier for a truly &quot;floating&quot; dining experience.</p>
+                <p>Azumare Lounge: If your idea of romance is a quiet corner, a glass of fine Turkish red wine, and some light jazz, this is the place. It’s tucked away from the main tourist strip, making it feel like a secret discovery.</p>
+                <p>Nestled along the turquoise shores of the Mediterranean, Side is a culinary treasure trove where ancient Roman ruins meet modern gastronomy. Whether you’re looking for a candlelit dinner by the Temple of Apollo or a bustling local kebab house, this guide covers the absolute best of Side&#x27;s dining scene in 2025.</p>
+                <p>Low lighting, soft music, and intimate corners.</p>
+                <p>Liman Restaurant Lounge Club: Situated in the most romantic corner of the harbor, Liman is famous for its sunset views. Request a table on the edge of the pier for a truly &quot;floating&quot; dining experience.</p>
+                <p>Azumare Lounge: If your idea of romance is a quiet corner, a glass of fine Turkish red wine, and some light jazz, this is the place. It’s tucked away from the main tourist strip, making it feel like a secret discovery.</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Side. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
