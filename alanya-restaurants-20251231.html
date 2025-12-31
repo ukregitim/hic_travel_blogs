@@ -1,0 +1,468 @@
+<!-- Blog Content: Best Restaurants - Alanya -->
+<!-- Generated: 2025-12-31 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <!-- Hero Slider -->
+    <div class="hic-hero-slider">
+        <div class="hic-hero-slides" id="hicHeroSlides">
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_arthur_shuraev.jpg" alt="Alanya - Photo 1">
+                <div class="hic-hero-credit">📷 Alanya Arthur Shuraev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_aram_sabah.jpg" alt="Alanya - Photo 2">
+                <div class="hic-hero-credit">📷 Alanya Aram Sabah</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_yuriy_vinnicov.jpg" alt="Alanya - Photo 3">
+                <div class="hic-hero-credit">📷 Alanya Yuriy Vinnicov</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_nihat_inci.jpg" alt="Alanya - Photo 4">
+                <div class="hic-hero-credit">📷 Alanya Nihat Inci</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin.jpg" alt="Alanya - Photo 5">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_georgii_eletskikh2.jpg" alt="Alanya - Photo 6">
+                <div class="hic-hero-credit">📷 Alanya Georgii Eletskikh</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_arthur_shuraev2.jpg" alt="Alanya - Photo 7">
+                <div class="hic-hero-credit">📷 Alanya Arthur Shuraev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin3.jpg" alt="Alanya - Photo 8">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+        </div>
+        
+        <!-- Centered Text Overlay -->
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Alanya</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🍽️</span>Best Restaurants</p>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">&#10094;</button>
+        <button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">&#10095;</button>
+        
+        <!-- Dots -->
+        <div class="hic-hero-dots" id="hicHeroDots">
+            <button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(1)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(2)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(3)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(4)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(5)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(6)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(7)"></button>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Top Picks For Authentic Turkish Cuisine</h3>
+            <div class="hic-section-content">
+                <p>For those seeking the true flavors of Anatolia, these establishments are local institutions.</p>
+                <p>Ravza Restaurant: One of the oldest and most beloved spots in the city center. It is famous for its Iskender Kebab and traditional Turkish appetizers (mezes). The atmosphere is warm, family-oriented, and authentic.</p>
+                <p>Mezze Grill Ocakbaşı: Located near the harbor, this is the go-to for a &quot;barbecue&quot; experience. They specialize in lamb shish and Adana kebabs cooked over an open charcoal grill.</p>
+                <p>Flash Restaurant: A favorite for locals looking for high-quality meat and Pide (Turkish pizza). It’s also one of the best places to try Lentil Soup (Mercimek Çorbası) at any time of day.</p>
+                <p>Esma Hanım’ın Yeri: If you want &quot;home-cooked&quot; style food, this is the place. It features Alanya-specific dishes like Sulu Yemek (stews) that you won&#x27;t easily find in tourist-heavy bistros.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Best Dining With A View (Romantic &amp; Fine Dining)</h3>
+            <div class="hic-section-content">
+                <p>Alanya’s geography allows for some of the most dramatic restaurant settings in Turkey.</p>
+                <p>Kale Panorama Restaurant: Perched high on the way to the Castle, it offers a 270-degree view of the harbor and Cleopatra Beach. It is perfect for a sunset dinner; they even offer a free shuttle service from many hotels.</p>
+                <p>The Rabbit: Famous for its &quot;I LOVE ALANYA&quot; sign, this restaurant provides a modern, chic atmosphere with a panoramic view from the Taurus Mountains.</p>
+                <p>Gardenia Restaurant: Situated on the castle hill, it blends European fine dining with stunning vistas. It is widely considered one of the most romantic spots in the city.</p>
+                <p>Mahperi Restaurant: A historic waterfront choice since 1947. Located right in the harbor, it’s known for its professional service and a mix of fresh seafood and international steaks.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Fresh Seafood &amp; Fish Houses</h3>
+            <div class="hic-section-content">
+                <p>In Alanya, the rule is simple: if you want the best fish, head to the harbor or the dedicated &quot;Fish Market.&quot;</p>
+                <p>Alanya Balık Evi (Alanya Fish House): Known for its elegant presentation and &quot;catch of the day&quot; selection. Their Sea Bass (Levrek) and Calamari are consistently highly rated.</p>
+                <p>Kaleiçi Meyhanesi: A classic Turkish Meyhane (tavern) experience. Expect fresh fish, flowing Raki, and a vibrant atmosphere where locals gather for long, social dinners.</p>
+                <p>Saray Balık: Located near the central fish market, this is a more casual, high-turnover spot where the focus is purely on the freshness of the seafood.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">International &amp; Casual Gems</h3>
+            <div class="hic-section-content">
+                <p>If you need a break from Turkish spices, Alanya has excellent global options.</p>
+                <p>Bistro Bahama: A lively, popular spot near Cleopatra Beach serving a huge menu ranging from Mexican fajitas to Italian pastas. Great for families.</p>
+                <p>Enberi Cafe: Known for having some of the best Italian-style pizzas and a modern, trendy vibe.</p>
+                <p>Soul of Kitchen: A stylish Mediterranean fusion restaurant that focuses on high-quality ingredients and modern culinary techniques.</p>
+                <p>💡 Quick Tips for Dining in Alanya</p>
+                <p>Mezes are often complimentary: Many traditional Turkish restaurants will bring you a small selection of appetizers and fresh bread before your main meal—don&#x27;t fill up too early!</p>
+                <p>The &quot;Fish Market&quot; Experience: You can buy fresh fish directly from the market in the city center and have the surrounding small restaurants cook it for you for a small fee.</p>
+                <p>Shuttle Services: Many &quot;Castle View&quot; restaurants offer free pick-up and drop-off from your hotel. Always ask your concierge to call and check.</p>
+                <p>Alanya is a culinary hotspot that perfectly balances rustic Turkish traditions with Mediterranean flair. Whether you want to dine on a castle cliffside at sunset or tuck into a world-class kebab in a bustling side street, the city has a wealth of options.</p>
+                <p>If you need a break from Turkish spices, Alanya has excellent global options.</p>
+                <p>Bistro Bahama: A lively, popular spot near Cleopatra Beach serving a huge menu ranging from Mexican fajitas to Italian pastas. Great for families.</p>
+                <p>Enberi Cafe: Known for having some of the best Italian-style pizzas and a modern, trendy vibe.</p>
+                <p>Soul of Kitchen: A stylish Mediterranean fusion restaurant that focuses on high-quality ingredients and modern culinary techniques.</p>
+                <p>💡 Quick Tips for Dining in Alanya</p>
+                <p>Mezes are often complimentary: Many traditional Turkish restaurants will bring you a small selection of appetizers and fresh bread before your main meal—don&#x27;t fill up too early!</p>
+                <p>The &quot;Fish Market&quot; Experience: You can buy fresh fish directly from the market in the city center and have the surrounding small restaurants cook it for you for a small fee.</p>
+                <p>Shuttle Services: Many &quot;Castle View&quot; restaurants offer free pick-up and drop-off from your hotel. Always ask your concierge to call and check.</p>
+                <p>Alanya is a culinary hotspot that perfectly balances rustic Turkish traditions with Mediterranean flair. Whether you want to dine on a castle cliffside at sunset or tuck into a world-class kebab in a bustling side street, the city has a wealth of options.</p>
+                <p>If you need a break from Turkish spices, Alanya has excellent global options.</p>
+                <p>Bistro Bahama: A lively, popular spot near Cleopatra Beach serving a huge menu ranging from Mexican fajitas to Italian pastas. Great for families.</p>
+                <p>Enberi Cafe: Known for having some of the best Italian-style pizzas and a modern, trendy vibe.</p>
+                <p>Soul of Kitchen: A stylish Mediterranean fusion restaurant that focuses on high-quality ingredients and modern culinary techniques.</p>
+                <p>💡 Quick Tips for Dining in Alanya</p>
+                <p>Mezes are often complimentary: Many traditional Turkish restaurants will bring you a small selection of appetizers and fresh bread before your main meal—don&#x27;t fill up too early!</p>
+                <p>The &quot;Fish Market&quot; Experience: You can buy fresh fish directly from the market in the city center and have the surrounding small restaurants cook it for you for a small fee.</p>
+                <p>Shuttle Services: Many &quot;Castle View&quot; restaurants offer free pick-up and drop-off from your hotel. Always ask your concierge to call and check.</p>
+                <p>Alanya is a culinary hotspot that perfectly balances rustic Turkish traditions with Mediterranean flair. Whether you want to dine on a castle cliffside at sunset or tuck into a world-class kebab in a bustling side street, the city has a wealth of options.</p>
+                <p>If you need a break from Turkish spices, Alanya has excellent global options.</p>
+                <p>Bistro Bahama: A lively, popular spot near Cleopatra Beach serving a huge menu ranging from Mexican fajitas to Italian pastas. Great for families.</p>
+                <p>Enberi Cafe: Known for having some of the best Italian-style pizzas and a modern, trendy vibe.</p>
+                <p>Soul of Kitchen: A stylish Mediterranean fusion restaurant that focuses on high-quality ingredients and modern culinary techniques.</p>
+                <p>💡 Quick Tips for Dining in Alanya</p>
+                <p>Mezes are often complimentary: Many traditional Turkish restaurants will bring you a small selection of appetizers and fresh bread before your main meal—don&#x27;t fill up too early!</p>
+                <p>The &quot;Fish Market&quot; Experience: You can buy fresh fish directly from the market in the city center and have the surrounding small restaurants cook it for you for a small fee.</p>
+                <p>Shuttle Services: Many &quot;Castle View&quot; restaurants offer free pick-up and drop-off from your hotel. Always ask your concierge to call and check.</p>
+                <p>Alanya is a culinary hotspot that perfectly balances rustic Turkish traditions with Mediterranean flair. Whether you want to dine on a castle cliffside at sunset or tuck into a world-class kebab in a bustling side street, the city has a wealth of options.</p>
+                <p>If you need a break from Turkish spices, Alanya has excellent global options.</p>
+                <p>Bistro Bahama: A lively, popular spot near Cleopatra Beach serving a huge menu ranging from Mexican fajitas to Italian pastas. Great for families.</p>
+                <p>Enberi Cafe: Known for having some of the best Italian-style pizzas and a modern, trendy vibe.</p>
+                <p>Soul of Kitchen: A stylish Mediterranean fusion restaurant that focuses on high-quality ingredients and modern culinary techniques.</p>
+                <p>💡 Quick Tips for Dining in Alanya</p>
+                <p>Mezes are often complimentary: Many traditional Turkish restaurants will bring you a small selection of appetizers and fresh bread before your main meal—don&#x27;t fill up too early!</p>
+                <p>The &quot;Fish Market&quot; Experience: You can buy fresh fish directly from the market in the city center and have the surrounding small restaurants cook it for you for a small fee.</p>
+                <p>Shuttle Services: Many &quot;Castle View&quot; restaurants offer free pick-up and drop-off from your hotel. Always ask your concierge to call and check.</p>
+                <p>Alanya is a culinary hotspot that perfectly balances rustic Turkish traditions with Mediterranean flair. Whether you want to dine on a castle cliffside at sunset or tuck into a world-class kebab in a bustling side street, the city has a wealth of options.</p>
+                <p>If you need a break from Turkish spices, Alanya has excellent global options.</p>
+                <p>Bistro Bahama: A lively, popular spot near Cleopatra Beach serving a huge menu ranging from Mexican fajitas to Italian pastas. Great for families.</p>
+                <p>Enberi Cafe: Known for having some of the best Italian-style pizzas and a modern, trendy vibe.</p>
+                <p>Soul of Kitchen: A stylish Mediterranean fusion restaurant that focuses on high-quality ingredients and modern culinary techniques.</p>
+                <p>💡 Quick Tips for Dining in Alanya</p>
+                <p>Mezes are often complimentary: Many traditional Turkish restaurants will bring you a small selection of appetizers and fresh bread before your main meal—don&#x27;t fill up too early!</p>
+                <p>The &quot;Fish Market&quot; Experience: You can buy fresh fish directly from the market in the city center and have the surrounding small restaurants cook it for you for a small fee.</p>
+                <p>Shuttle Services: Many &quot;Castle View&quot; restaurants offer free pick-up and drop-off from your hotel. Always ask your concierge to call and check.</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Alanya. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
