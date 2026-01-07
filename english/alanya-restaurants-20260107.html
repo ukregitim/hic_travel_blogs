@@ -1,0 +1,422 @@
+<!-- Blog Content: Best Restaurants - Alanya -->
+<!-- Generated: 2026-01-07 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <!-- Hero Slider -->
+    <div class="hic-hero-slider">
+        <div class="hic-hero-slides" id="hicHeroSlides">
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_arthur_shuraev.jpg" alt="Alanya - Photo 1">
+                <div class="hic-hero-credit">📷 Alanya Arthur Shuraev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_aram_sabah.jpg" alt="Alanya - Photo 2">
+                <div class="hic-hero-credit">📷 Alanya Aram Sabah</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_yuriy_vinnicov.jpg" alt="Alanya - Photo 3">
+                <div class="hic-hero-credit">📷 Alanya Yuriy Vinnicov</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_nihat_inci.jpg" alt="Alanya - Photo 4">
+                <div class="hic-hero-credit">📷 Alanya Nihat Inci</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin.jpg" alt="Alanya - Photo 5">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_georgii_eletskikh2.jpg" alt="Alanya - Photo 6">
+                <div class="hic-hero-credit">📷 Alanya Georgii Eletskikh</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_arthur_shuraev2.jpg" alt="Alanya - Photo 7">
+                <div class="hic-hero-credit">📷 Alanya Arthur Shuraev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin3.jpg" alt="Alanya - Photo 8">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+        </div>
+        
+        <!-- Centered Text Overlay -->
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Alanya</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🍽️</span>Best Restaurants</p>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">&#10094;</button>
+        <button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">&#10095;</button>
+        
+        <!-- Dots -->
+        <div class="hic-hero-dots" id="hicHeroDots">
+            <button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(1)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(2)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(3)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(4)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(5)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(6)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(7)"></button>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">The Heavy Hitters: Authentic Turkish &amp; Grills</h3>
+            <div class="hic-section-content">
+                <p>If you want the quintessential Turkish &quot;Ocakbaşı&quot; (fireside grill) experience, these are the top-rated spots in the city center.</p>
+                <p>Mezze Grill Restaurant &amp; Ocakbasi: Widely considered the best in town for its charcoal-grilled meats. Their signature mixed grill and freshly baked pita bread are legendary. It’s perfect for those who want high-quality Turkish food in a lively, central atmosphere.</p>
+                <p>Ravza Restaurant: A family-owned institution since 1955. Located near the harbor, it focuses on traditional dishes like Iskender kebab, Pide, and authentic mezes. It is a dry restaurant (no alcohol), making it a favorite for families and those seeking a purely traditional experience.</p>
+                <p>Flash Restaurant: Open late and popular with locals, Flash is famous for its hearty soups (Mercimek or Paça) and traditional Turkish breakfast. It’s the place to go if you want no-frills, high-flavor food that won&#x27;t break the bank.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Dining With A View: Castle &amp; Harbor</h3>
+            <div class="hic-section-content">
+                <p>Alanya&#x27;s geography—a massive peninsula with a castle on top—creates some of the most dramatic dining backdrops in the Mediterranean.</p>
+                <p>Kale Panorama Restaurant: Perched high on the road to Alanya Castle, this spot offers breathtaking views of the city lights and Cleopatra Beach. They even offer a free pick-up service from many hotels. It’s a top choice for romantic dinners or special celebrations.</p>
+                <p>Mahperi Restaurant: Situated right on the harbor since 1947, Mahperi offers a refined atmosphere where you can watch the pirate ships dock. They specialize in both steak and Mediterranean seafood, served with a classic touch.</p>
+                <p>Iskele Sofrası: Another harbor gem known as the &quot;Father and Son Place,&quot; it’s famous for its hospitality and fresh fish. The view of the Red Tower at night is unbeatable.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Fine Dining &amp; International Cuisine</h3>
+            <div class="hic-section-content">
+                <p>For those seeking a more modern or &quot;gourmet&quot; twist on Mediterranean flavors.</p>
+                <p>Seasons Restaurant (by Mutlu Şevket Yılmaz): Known for its exceptional service and &quot;chef’s touch.&quot; The menu changes with the seasons, focusing on fresh, local ingredients presented with artistic flair.</p>
+                <p>Olivia Gourmet: Located near the waterfront, this is a high-end choice for international cuisine. If you are craving a perfectly cooked steak or a sophisticated pasta dish paired with premium Turkish wines, this is the place.</p>
+                <p>Le Chevy Restaurant: A cozy but stylish spot known for Mediterranean fusion. Their lamb shank and grilled sea bream are frequently cited as the best in the Damlataş area.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Hidden Gems &amp; Unique Experiences</h3>
+            <div class="hic-section-content">
+                <p>Sometimes the best meals are found away from the main tourist strips.</p>
+                <p>Dim River (Dim Çayı) Restaurants: About 15 minutes from the city center, you can dine on wooden platforms floating directly over the cold mountain water of the Dim River. Most places here, like Pınarbaşı, serve fresh trout (Alabalık) caught right from the river.</p>
+                <p>Derya Lokantası: A true &quot;tradesman’s restaurant&quot; (Esnaf Lokantası). There is no fixed menu; you walk up to the counter and point at the daily home-cooked stews and vegetable dishes. It is incredibly cheap, healthy, and authentic.</p>
+                <p>Cafe Local: If you need a break from kebabs, this trendy cafe offers the best Neapolitan-style pizza and artisanal croissants in Alanya. It’s the &quot;it&quot; spot for brunch in 2026.</p>
+                <p>Restaurant Style Best For Price Range</p>
+                <p>Ravza Traditional Authentic Heritage $$</p>
+                <p>Dim River Seafood/Rustic Nature &amp; Relaxation $$</p>
+                <p>Flash Local/Cafe Breakfast &amp; Late Night $</p>
+                <p>A Note on Reservations: During the peak summer months (June–September), it is highly recommended to book tables at Kale Panorama and Mezze Grill at least 24 hours in advance, as they are often fully committed by sunset.</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Alanya. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
