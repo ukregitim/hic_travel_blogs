@@ -1,0 +1,443 @@
+<!-- Blog Content: Best Restaurants - Alanya -->
+<!-- Generated: 2026-01-10 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <!-- Hero Slider -->
+    <div class="hic-hero-slider">
+        <div class="hic-hero-slides" id="hicHeroSlides">
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_georgii_eletskikh2.webp" alt="Alanya - Photo 1">
+                <div class="hic-hero-credit">📷 Alanya Georgii Eletskikh</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin4.webp" alt="Alanya - Photo 2">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin.webp" alt="Alanya - Photo 3">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_yuriy_vinnicov.webp" alt="Alanya - Photo 4">
+                <div class="hic-hero-credit">📷 Alanya Yuriy Vinnicov</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_arthur_shuraev.webp" alt="Alanya - Photo 5">
+                <div class="hic-hero-credit">📷 Alanya Arthur Shuraev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_georgii_eletskikh.webp" alt="Alanya - Photo 6">
+                <div class="hic-hero-credit">📷 Alanya Georgii Eletskikh</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin3.webp" alt="Alanya - Photo 7">
+                <div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_nihat_inci.webp" alt="Alanya - Photo 8">
+                <div class="hic-hero-credit">📷 Alanya Nihat Inci</div>
+            </div>
+        </div>
+        
+        <!-- Centered Text Overlay -->
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Alanya</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🍽️</span>Best Restaurants</p>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">&#10094;</button>
+        <button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">&#10095;</button>
+        
+        <!-- Dots -->
+        <div class="hic-hero-dots" id="hicHeroDots">
+            <button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(1)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(2)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(3)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(4)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(5)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(6)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(7)"></button>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">The &quot;Views &amp; Vibes&quot; Icons</h3>
+            <div class="hic-section-content">
+                <p>Best for: Romantic dates, special occasions, and sunset photography.</p>
+                <p>Terrace Restaurant Alanya (Tophane)</p>
+                <p>The Vibe: Perched high up near the castle road, this is arguably the best spot in the city for a panoramic sunset. It’s elegant but relaxed, with a breeze that beats the city heat.</p>
+                <p>On the Menu: High-end Turkish and International fusion. Their steaks are famous, but the Seafood Casserole and Grilled Sea Bass are the real stars here.</p>
+                <p>Pro Tip: Book a table 30 minutes before sunset. The transition from golden hour to the twinkling city lights below is magical.</p>
+                <p>The Vibe: Boho-chic luxury. Located right on the sand, this is where you go for a &quot;Ibiza-style&quot; dinner. It acts as a beach club by day and a moody, atmospheric restaurant by night.</p>
+                <p>On the Menu: Modern Mediterranean. Try the Octopus Carpaccio or their signature Sushi Platter (a rarity to find done well in Alanya).</p>
+                <p>Best For: A cocktail in hand, listening to the waves crash just meters away.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Authentic Turkish &amp; Kebabs</h3>
+            <div class="hic-section-content">
+                <p>Best for: Traditional flavors, charcoal grills, and &quot;real&quot; local food.</p>
+                <p>Mezze Grill Ocakbaşı</p>
+                <p>The Vibe: This is consistently rated as one of the top restaurants in Alanya for a reason. It balances a tourist-friendly atmosphere with deeply authentic cooking methods (Ocakbaşı means &quot;fireside,&quot; referring to the open grill).</p>
+                <p>On the Menu: You are here for the meat. The Adana Kebab (spicy minced lamb) and Lamb Chops are charcoal-grilled to perfection.</p>
+                <p>Don&#x27;t Miss: Start with their Hot Balloon Bread (lavaş) and a tray of cold mezzes like Haydari (yogurt dip) and Acılı Ezme (spicy tomato dip).</p>
+                <p>The Vibe: Located in the heart of the bazaar, Ravza is historic, reliable, and unpretentious. It has a beautiful courtyard that feels like an escape from the busy shopping streets.</p>
+                <p>On the Menu: Traditional Ottoman cuisine. The Beyti Kebab (garlic-yogurt sauce over kebab wrapped in bread) is legendary here.</p>
+                <p>Budget: Affordable and high value.</p>
+                <p>Haydar Usta Ocakbaşı</p>
+                <p>The Vibe: A local favorite often overlooked by package tourists. It’s loud, smoky (in a good way), and incredibly lively.</p>
+                <p>On the Menu: This is for purists. No fancy plating, just incredible skewers of meat served with roasted peppers and onions.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Fresh Catch: The Seafood Specialists</h3>
+            <div class="hic-section-content">
+                <p>Best for: Fish lovers and harbor atmosphere.</p>
+                <p>The Vibe: An institution in Alanya since 1947. Located right on the harbor promenade, it offers white-tablecloth service with a view of the pirate ships and the Red Tower.</p>
+                <p>On the Menu: Fresh daily catch. Ask for the Salt-Crusted Sea Bass (flambéed tableside for a bit of theatre). Their Calamari is also renowned for being tender, not rubbery.</p>
+                <p>Note: It is on the pricier side, but you are paying for the history and the prime location.</p>
+                <p>The Vibe: Tucked slightly away from the most chaotic part of the harbor, this family-run spot feels more intimate.</p>
+                <p>On the Menu: They excel at the classics—Grilled Bream (Çupra) and Shrimp Casserole (Karides Güveç).</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Hidden Gems &amp; Casual Eats</h3>
+            <div class="hic-section-content">
+                <p>Best for: Lunch, quick bites, and escaping the crowds.</p>
+                <p>The Vibe: A quirky, fun gastro-pub atmosphere that breaks away from the standard &quot;kebab and pizza&quot; tourist traps.</p>
+                <p>On the Menu: Great burgers, craft beers, and an excellent Mexican Fajita platter if you need a break from Turkish food.</p>
+                <p>Esma Hanım’ın Yeri (Esma Auntie’s Place)</p>
+                <p>The Vibe: This is as local as it gets. It feels like eating in someone’s home kitchen.</p>
+                <p>On the Menu: Home-cooked &quot;Gözleme&quot; (stuffed Turkish flatbread) and fresh breakfast platters. It is arguably the best breakfast (Kahvaltı) spot in town.</p>
+                <p>📝 Professional Dining Tips for Alanya</p>
+                <p>The &quot;Kuver&quot; Charge: Many restaurants in Turkey add a small cover charge (kuver) to the bill for the bread and water served immediately. This is standard practice.</p>
+                <p>Tipping: Service is usually not included. A tip of 10-15% in cash is customary and highly appreciated by waitstaff.</p>
+                <p>Alcohol: While Alanya is very liberal, &quot;Ocakbaşı&quot; restaurants (traditional grills) sometimes do not serve alcohol, though most in tourist areas do. Always check the menu outside if a glass of Rakı is essential to your meal.</p>
+                <p>Reservations: For Terrace and Mahperi during July and August, reservations are mandatory if you want a table with a view.</p>
+                <p>Summary of Top Picks</p>
+                <p>Category Restaurant Name Highlight Dish</p>
+                <p>Fine Dining Terrace Restaurant Steak &amp; Sunset View</p>
+                <p>Local Fav Mezze Grill Ocakbaşı Adana Kebab &amp; Mezzes</p>
+                <p>Seafood Mahperi Restaurant Salt-Crusted Sea Bass</p>
+                <p>Casual/Fun Lost in Alanya Burgers &amp; Cocktails</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Alanya. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
