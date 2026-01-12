@@ -1,0 +1,423 @@
+<!-- Blog Content: Street Food Guide - Antalya -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <!-- Hero Slider -->
+    <div class="hic-hero-slider">
+        <div class="hic-hero-slides" id="hicHeroSlides">
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen.webp" alt="Antalya - Photo 1">
+                <div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_erik_karits.webp" alt="Antalya - Photo 2">
+                <div class="hic-hero-credit">📷 Antalya Erik Karits</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor.webp" alt="Antalya - Photo 3">
+                <div class="hic-hero-credit">📷 Antalya Igor</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_evgeny_matveev.webp" alt="Antalya - Photo 4">
+                <div class="hic-hero-credit">📷 Antalya Evgeny Matveev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_viktor_nikolaev.webp" alt="Antalya - Photo 5">
+                <div class="hic-hero-credit">📷 Antalya Viktor Nikolaev</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen_2.webp" alt="Antalya - Photo 6">
+                <div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_mishel_lazarenko.webp" alt="Antalya - Photo 7">
+                <div class="hic-hero-credit">📷 Antalya Mishel Lazarenko</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor_sporynin.webp" alt="Antalya - Photo 8">
+                <div class="hic-hero-credit">📷 Antalya Igor Sporynin</div>
+            </div>
+        </div>
+        
+        <!-- Centered Text Overlay -->
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Antalya</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🥙</span>Street Food Guide</p>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">&#10094;</button>
+        <button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">&#10095;</button>
+        
+        <!-- Dots -->
+        <div class="hic-hero-dots" id="hicHeroDots">
+            <button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(1)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(2)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(3)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(4)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(5)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(6)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(7)"></button>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Antalya Piyazı (Antalya-Style Bean Salad)</h3>
+            <div class="hic-section-content">
+                <p>While piyaz is found across Turkey, the Antalya version is a protected geographical indication. Unlike the vinegar-heavy versions elsewhere, Antalya&#x27;s street-side piyaz features a rich, creamy sauce made from tahini, lemon juice, and garlic.</p>
+                <p>The Experience: It is typically served as a side to grilled meatballs (köfte) but is hearty enough to be a meal on its own. Look for vendors who top it with hard-boiled eggs, fresh parsley, and a generous drizzle of local olive oil.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Tirmis (Lupini Beans)</h3>
+            <div class="hic-section-content">
+                <p>If you see a street vendor pushing a small cart with yellow, coin-shaped beans soaking in water, you’ve found Tirmis. This is Antalya’s most idiosyncratic snack.</p>
+                <p>The Experience: These are boiled lupini beans, seasoned simply with salt and cumin. Locals eat them like sunflower seeds—popping the bean out of its translucent skin. It’s a bitter-salty snack that is highly addictive once you get the hang of it.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Yanık Dondurma (Burnt Ice Cream)</h3>
+            <div class="hic-section-content">
+                <p>You haven&#x27;t truly experienced Antalya’s dessert scene until you’ve tried Burnt Ice Cream. Made specifically from the fatty milk of goats fed on wild thyme, the milk is intentionally &quot;scorched&quot; during the boiling process.</p>
+                <p>The Experience: The flavor is an acquired taste—smoky, creamy, and slightly caramelized. It’s a cooling treat that offers a sophisticated departure from standard vanilla.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Serpme Börek</h3>
+            <div class="hic-section-content">
+                <p>While börek is a Turkish staple, Antalya’s Serpme Börek is a performance art. Chefs toss and spin the dough until it is paper-thin and translucent before folding it over fillings like minced meat, cheese, or spinach.</p>
+                <p>The Experience: It is significantly crispier and lighter than the heavy, doughy versions found in other provinces. It’s best enjoyed mid-morning with a glass of strong Turkish tea.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Midye Dolma (Stuffed Mussels)</h3>
+            <div class="hic-section-content">
+                <p>As a coastal city, Antalya’s night air is often filled with the scent of fresh lemon and spices from Midye Dolma stands. These are orange-fleshed mussels stuffed with herbed rice, currants, and pine nuts.</p>
+                <p>The Experience: Vendors will stand behind a tray of mussels and open them for you one by one. You squeeze fresh lemon over the shell and use the top shell as a spoon. It is customary to keep eating until you tell the vendor to stop.</p>
+                <p>Pro Tips for Food Explorers</p>
+                <p>Follow the School Bells: The best Simit (sesame bread rings) and Tavuk Pilav (chicken and rice) carts are usually found near schools and government buildings during lunch hours.</p>
+                <p>Seasonal Sips: In the winter, look for vendors selling Boza (a fermented malt drink); in the summer, seek out Taze Sıkılmış Portakal Suyu—Antalya is the citrus capital of Turkey, and the orange juice here is unparalleled.</p>
+                <p>Hydration: Always look for &quot;Ayran&quot; (a salted yogurt drink) to accompany spicy dishes like Tantuni or Adana Dürüm; it is the traditional way to balance the heat and aid digestion.</p>
+                <p>Cultural Context: The &quot;Esnaf&quot; Tradition</p>
+                <p>The quality of street food in Antalya remains high because of the Esnaf (tradesmen) culture. Many of these vendors have occupied the same street corner for decades, relying on a loyal local customer base rather than one-time tourists. This ensures that the ingredients—from the tomatoes grown in nearby greenhouses to the tahini ground in local mills—are of the highest standard.</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Antalya. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
