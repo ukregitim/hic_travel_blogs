@@ -1,0 +1,392 @@
+<!-- Blog Content: Street Food Guide - Manavgat -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<!-- Hero Slider -->
+<div class="hic-hero-slider">
+<div class="hic-hero-slides" id="hicHeroSlides">
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 1" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/20230116_Manavgat,_Turkey_7.webp"/>
+<div class="hic-hero-credit">📷 20230116 Manavgat, Turkey</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 2" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/arthur-shuraev-YFyldeW9nMI-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Arthur Shuraev Yfyldew9Nmi Unsplash</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 3" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/20230116_Manavgat,_Turkey_17.webp"/>
+<div class="hic-hero-credit">📷 20230116 Manavgat, Turkey</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 4" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/maksym-harbar-njkcif0VpYU-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Maksym Harbar Njkcif0Vpyu Unsplash</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 5" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/Manavgat_560DSC_0282_(48104097988).webp"/>
+<div class="hic-hero-credit">📷 Manavgat 560Dsc 0282 (48104097988)</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 6" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/arthur-shuraev-wttO4_DklJo-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Arthur Shuraev Wtto4 Dkljo Unsplash</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 7" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/emrah-kara-mV2UTWN3pE0-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Emrah Kara Mv2Utwn3Pe0 Unsplash</div>
+</div>
+</div>
+<!-- Centered Text Overlay -->
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">Манавгат</h1>
+<p class="hic-hero-topic">🥙Гид по уличной еде</p>
+</div>
+<!-- Navigation Arrows -->
+<button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">❮</button>
+<button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">❯</button>
+<!-- Dots -->
+<div class="hic-hero-dots" id="hicHeroDots">
+<button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(1)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(2)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(3)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(4)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(5)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(6)"></button>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">Лучшие уличные продукты, которые вы должны попробовать</h3>
+<div class="hic-section-content">
+<p>Тантуни, родом из Мерсина, но усовершенствованный на юге Турции, является фаворитом среди местных жителей. Он состоит из нарезанной соломкой говядины или баранины, обжаренной в традиционной круглой металлической сковороде (мешке). Мясо приправляют сумахом, петрушкой и помидорами, а затем заворачивают в тонкую мягкую лепешку, называемую лаваш.</p>
+<p>Совет от профессионала: попросите «Acılı» (острый), чтобы получить немного местных перцевых хлопьев, которые подчеркивают насыщенность мяса.</p>
+<p>Гёзлеме (анатолийские лепешки)</p>
+<p>Гёзлеме, часто называемый «турецким крепом», представляет собой раскатанное вручную тесто, сложенное с различными начинками и приготовленное на куполообразной сковороде. В Манавгате на местных рынках вы увидите женщин, которые с невероятной скоростью выкатывают их.</p>
+<p>Популярные начинки: Пейнирли (фета и петрушка), Пататесли (картофель со специями) или Испанаклы (шпинат).</p>
+<p>Лучшее сочетание: холодный стакан пенистого айрана (соленого йогуртового напитка).</p>
+<p>Мидье Долма (Фаршированные мидии)</p>
+<p>Когда солнце садится, вы увидите продавцов с большими подносами с мидье долмой. Это мидии оранжевого цвета, фаршированные рисом с пряностями, смородиной и кедровыми орешками.</p>
+<p>Как есть: Продавец выжмет для вас мидию свежевыжатым лимонным соком. Используйте верхнюю часть корпуса как ложку, чтобы вычерпывать рис и мясо за один укус. Это вызывает привыкание и удивительно доступно.</p>
+<p>Типичный турецкий завтрак на ходу. Симит — это круглый хлеб, инкрустированный кунжутом и патокой. В Манавгате корочка особенно хрустящая.</p>
+<p>Где найти: ищите красные стеклянные тележки, разбросанные по центру города. Его лучше всего есть свежим утром, пока солнце не смягчило хруст.</p>
+<p>Для любителей приключений Кокореч является основным продуктом турецкой кулинарной культуры «после наступления темноты». Он состоит из приправленных специями бараньих кишок, обернутых приправленными субпродуктами, обжаренных на гриле в горизонтальном положении на углях, а затем мелко нарезанных с помидорами и зеленым перцем.</p>
+<p>Вкус: дымный, жирный и очень пикантный, подается внутри половины буханки хрустящего хлеба.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Сладкое послевкусие: уличные десерты</h3>
+<div class="hic-section-content">
+<p>Исторически известный как «бордельный десерт» (хотя сейчас он является основным продуктом питания для всей семьи), это круглое, обжаренное во фритюре тесто, пропитанное густым сахарным сиропом. Он хрустящий снаружи и сиропообразный внутри.</p>
+<p>Тазе Мысир (Свежая кукуруза)</p>
+<p>В зависимости от сезона вы найдете продавцов, продающих кукурузу либо Кёзде (жаренная на углях для получения дымного полукокса), либо Сют Мысир (вареная в кастрюле с солью и маслом).</p>
+<p>Основные местные знания</p>
+<p>Рынок понедельника: каждый понедельник и четверг в Манавгате проходит один из крупнейших рынков под открытым небом в регионе. Это абсолютный «эпицентр» настоящего Гёзлеме и свежих сезонных фруктов, таких как инжир и гранатовый сок.</p>
+<p>Региональные цитрусовые: Манавгат славится своими цитрусовыми рощами. Не проходите мимо уличного торговца с ручным прессом, не заказав стакан «Нар Сую» (гранатового сока) или «Портакал Сую» (апельсинового сока) — он один из самых свежих в мире.</p>
+<p>Часы работы: В то время как продавцы Simit — ранние пташки, киоски Tantuni и Kokoreç обычно работают ближе к вечеру и остаются открытыми далеко за полночь, чтобы удовлетворить местную ночную жизнь.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Спасибо за чтение!</h4>
+<p>Мы надеемся, что это руководство поможет вам изучить Манавгат. Оставайтесь с нами, чтобы получить больше советов путешественникам!</p>
+<p class="hic-cta-tagline">Увидимся в следующем приключении! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->
