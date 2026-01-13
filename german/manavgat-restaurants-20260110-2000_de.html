@@ -1,0 +1,455 @@
+<!-- Blog Content: Best Restaurants - Manavgat -->
+<!-- Generated: 2026-01-10 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<!-- Hero Slider -->
+<div class="hic-hero-slider">
+<div class="hic-hero-slides" id="hicHeroSlides">
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 1" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/20230116_Manavgat,_Turkey_7.webp"/>
+<div class="hic-hero-credit">📷 20230116 Manavgat, Turkey</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 2" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/arthur-shuraev-YFyldeW9nMI-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Arthur Shuraev Yfyldew9Nmi Unsplash</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 3" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/20230116_Manavgat,_Turkey_17.webp"/>
+<div class="hic-hero-credit">📷 20230116 Manavgat, Turkey</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 4" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/maksym-harbar-njkcif0VpYU-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Maksym Harbar Njkcif0Vpyu Unsplash</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 5" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/Manavgat_560DSC_0282_(48104097988).webp"/>
+<div class="hic-hero-credit">📷 Manavgat 560Dsc 0282 (48104097988)</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 6" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/arthur-shuraev-wttO4_DklJo-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Arthur Shuraev Wtto4 Dkljo Unsplash</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Manavgat - Photo 7" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/manavgat/emrah-kara-mV2UTWN3pE0-unsplash.webp"/>
+<div class="hic-hero-credit">📷 Emrah Kara Mv2Utwn3Pe0 Unsplash</div>
+</div>
+</div>
+<!-- Centered Text Overlay -->
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">Manavgat</h1>
+<p class="hic-hero-topic">🍽️Beste Restaurants</p>
+</div>
+<!-- Navigation Arrows -->
+<button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">❮</button>
+<button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">❯</button>
+<!-- Dots -->
+<div class="hic-hero-dots" id="hicHeroDots">
+<button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(1)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(2)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(3)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(4)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(5)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(6)"></button>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">Orfoz Restaurant (Side Old Town)</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Feines Essen und Sonnenuntergänge. Orfoz gilt weithin als Juwel der Restaurantszene der Region und bietet eine unvergleichliche Lage direkt neben dem Apollontempel. Hier verbringen Sie einen romantischen Abend. Die Meeresfrüchte sind unglaublich frisch und die kulinarische Technik übertrifft die übliche Touristenküche um ein Vielfaches.</p>
+<p>Küche: Meeresfrüchte / Mediterran</p>
+<p>Spezialgericht: Gegrillter Oktopus oder Seebarsch in Salzkruste.</p>
+<p>Atmosphäre: Elegant, romantisch und gelassen mit dem Rauschen der Wellen in der Nähe.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Kamer Ocakbaşı Restaurant</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Authentische türkische Grillgerichte Wenn Sie die wahre Kultur eines Ocakbaşı (wo Fleisch direkt vor Ihren Augen auf Holzkohle gegrillt wird) erleben möchten, sind Sie hier genau richtig. Es liegt in Side, ist aber von Manavgat aus leicht zu erreichen und kombiniert hochwertiges Fleisch mit außergewöhnlicher Gastfreundschaft.</p>
+<p>Küche: Türkisches Steakhaus/BBQ</p>
+<p>Spezialgericht: Adana Kebab oder die Lammkoteletts (Kuzu Pirzola).</p>
+<p>Atmosphäre: Warm, einladend und aromatisch.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Mein Eckrestaurant</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Ein verstecktes lokales Juwel Abseits der auffälligen Touristenfallen fühlt sich dieses familiengeführte Lokal an, als würde man bei einem türkischen Freund zu Hause essen. Der Service ist persönlich und das Essen wird mit echter Liebe zubereitet. Es ist berühmt für seine theatralischen Tontopfgerichte.</p>
+<p>Küche: Traditionell türkisch/osmanisch</p>
+<p>Preis: $-$$ (erschwinglich)</p>
+<p>Spezialgericht: Testi Kebab (Töpferkebab) – mit einem Hammer an Ihrem Tisch aufgeschlagen.</p>
+<p>Atmosphäre: Gemütlich, intim und unglaublich freundlich.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Q Beach Restaurant &amp; Lounge</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Essen am Strand Das Q Beach liegt am Evrenseki-Streifen und eignet sich perfekt für ein entspanntes Mittagessen, das in ein Abendessen übergeht. Die Atmosphäre ist schick, aber entspannt und bietet hochwertige internationale Gerichte neben türkischen Favoriten direkt am Strand.</p>
+<p>Küche: International / Meeresfrüchte / Türkisch</p>
+<p>Signature Dish: Knoblauchgarnelen und ihre Cocktailauswahl.</p>
+<p>Atmosphäre: Chillig, stilvoll und luftig.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Kalamar Balık Evi (Zentrum von Manavgat)</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Lokale Meeresfrüchte Während Side die Aussicht bietet, hat das Zentrum von Manavgat die Authentizität. Kalamar Balık Evi ist der Ort, an dem die Einheimischen Fisch essen. Es ist unprätentiös, preisgünstig und konzentriert sich ausschließlich auf die Frische des Fangs.</p>
+<p>Spezialgericht: Gebratener Calamari (Kalamar Tava) mit hausgemachter Remoulade.</p>
+<p>Atmosphäre: Lässig, lebhaft und authentisch.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Altstadt-Steakhouse</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Fleischfresser Manchmal sehnt man sich einfach nach einem hochwertigen Steak. Das Old Town Steakhouse zeichnet sich durch seine trocken gereiften Stücke und seinen professionellen Service aus. Es bietet eine schöne Abwechslung von der traditionellen Kebab-Szene, wenn Sie auf der Suche nach einem Steak-Dinner im europäischen Stil sind.</p>
+<p>Signature Dish: Pfeffersteak oder T-Bone.</p>
+<p>Atmosphäre: Anspruchsvoll und rustikal.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Allaturca Restaurant</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Familien und Gruppen Allaturca schafft es, touristische Attraktivität mit echter Qualität in Einklang zu bringen. Es ist ein Publikumsliebling mit einer riesigen Speisekarte, die von italienischer Pasta bis hin zu türkischen Aufläufen alles gut abdeckt.</p>
+<p>Küche: International / Türkisch</p>
+<p>Spezialgericht: Osmanlı Tabağı (osmanischer Teller) – eine Kostprobe verschiedener Eintöpfe und Fleischsorten.</p>
+<p>Atmosphäre: Lebhaft, geräumig und familienfreundlich.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Seite Meyhane</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Das „Meze“-Erlebnis Ein Meyhane ist eine traditionelle Taverne, in der der Schwerpunkt auf kleinen Tellern (Meze), Raki (Anisschnaps) und Gesprächen liegt. Dieser Ort bietet eine fantastische Auswahl an kalten Vorspeisen, die problemlos eine ganze Mahlzeit ergeben können.</p>
+<p>Küche: Türkisches Meze / Taverne</p>
+<p>Spezialgericht: Gegrillter Oktopussalat und Ackerbohnenpüree.</p>
+<p>Stimmung: Traditionell, musikalisch und gesellig.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Almina Restaurant (Gündoğdu)</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Budgetfreundlicher Geschmack Das Restaurant liegt in der Gegend von Gündoğdu und ist ein erstklassiger Ort für diejenigen, die hochwertiges Essen ohne die „Meerblicksteuer“ wünschen. Die Spieße sind saftig und die Portionen großzügig.</p>
+<p>Küche: Türkisch / Mediterran</p>
+<p>Spezialgericht: Chicken Shish und ihr frisches Lavash-Brot.</p>
+<p>Atmosphäre: Einfach, sauber und auf Essen ausgerichtet.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Liman Restaurant</h3>
+<div class="hic-section-content">
+<p>Das Beste für: Atmosphäre am Fluss Sie können Manavgat nicht besuchen, ohne am berühmten Fluss zu speisen. Während viele Orte am Flussufer touristisch sind, bietet Liman durchweg guten Service und eine zuverlässige Speisekarte, was es zur besten Wahl für das kultige „Essen am grünen Wasser“-Erlebnis macht.</p>
+<p>Küche: Türkisch / Meeresfrüchte</p>
+<p>Spezialgericht: Frische Flussforelle (Alabalık), gebacken mit Pilzen und Käse.</p>
+<p>Atmosphäre: Malerisch und entspannend.</p>
+<p>💡 Profi-Tipps zum Essen in Manavgat</p>
+<p>Reservierungen: Für Sonnenuntergangsorte wie Orfoz oder Kamer sollten Sie während der Hochsaison (Juni-August) mindestens 2 Tage im Voraus buchen.</p>
+<p>Transport: Taxis sind leicht verfügbar, aber wenn Sie in einem Resort übernachten, fragen Sie, ob das Restaurant einen Shuttleservice anbietet – viele der besseren Lokale (wie Steakhäuser) holen Sie kostenlos ab!</p>
+<p>Die „Gedeck“-Gebühr: Beachten Sie, dass einige Restaurants eine „Kuver“ (Gedeckgebühr) pro Person erheben, die Brot und Wasser beinhaltet. Dies ist in der Türkei gängige Praxis.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Danke fürs Lesen!</h4>
+<p>Wir hoffen, dass dieser Reiseführer Ihnen hilft, Manavgat zu erkunden. Bleiben Sie dran für weitere Reisetipps!</p>
+<p class="hic-cta-tagline">Wir sehen uns im nächsten Abenteuer! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->
