@@ -1,0 +1,428 @@
+<!-- Blog Content: Cheap Supermarkets & Shopping - Side -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <!-- Hero Slider -->
+    <div class="hic-hero-slider">
+        <div class="hic-hero-slides" id="hicHeroSlides">
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-16_Side,_Turkey_36.webp" alt="Side - Photo 1">
+                <div class="hic-hero-credit">📷 2023 01 16 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-19_Side,_Turkey_6.webp" alt="Side - Photo 2">
+                <div class="hic-hero-credit">📷 2023 01 19 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-19_Side,_Turkey_11.webp" alt="Side - Photo 3">
+                <div class="hic-hero-credit">📷 2023 01 19 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-15_Side,_Turkey_12.webp" alt="Side - Photo 4">
+                <div class="hic-hero-credit">📷 2023 01 15 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-16_Side,_Turkey_30.webp" alt="Side - Photo 5">
+                <div class="hic-hero-credit">📷 2023 01 16 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-16_Side,_Turkey_53.webp" alt="Side - Photo 6">
+                <div class="hic-hero-credit">📷 2023 01 16 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-16_Side,_Turkey_45.webp" alt="Side - Photo 7">
+                <div class="hic-hero-credit">📷 2023 01 16 Side, Turkey</div>
+            </div>
+            <div class="hic-hero-slide">
+                <img src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/side/2023-01-16_Side,_Turkey_15.webp" alt="Side - Photo 8">
+                <div class="hic-hero-credit">📷 2023 01 16 Side, Turkey</div>
+            </div>
+        </div>
+        
+        <!-- Centered Text Overlay -->
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Side</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🛒</span>Cheap Supermarkets &amp; Shopping</p>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">&#10094;</button>
+        <button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">&#10095;</button>
+        
+        <!-- Dots -->
+        <div class="hic-hero-dots" id="hicHeroDots">
+            <button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(1)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(2)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(3)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(4)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(5)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(6)"></button>
+            <button class="hic-hero-dot " onclick="hicHeroGo(7)"></button>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">The &quot;Big Three&quot; Discount Supermarkets</h3>
+            <div class="hic-section-content">
+                <p>For the absolute lowest prices on staples (water, dairy, snacks, and toiletries), look for these three chains. They are the Turkish equivalent of Aldi or Lidl: small, no-frills, and highly affordable.</p>
+                <p>Supermarket Best For... Pro Tip</p>
+                <p>BİM Lowest overall prices on basic staples. Look for their &quot;Dost&quot; dairy brand; the yogurt and milk are excellent quality for the price.</p>
+                <p>A101 Weekly &quot;Aktüel&quot; deals on household goods. They often stock surprisingly good electronics or beach gear on Thursdays at deep discounts.</p>
+                <p>Şok Fresh produce and daily essentials. Their &quot;Mis&quot; brand dairy is a local favorite. They often have better fruit/veg sections than BİM.</p>
+                <p>Note: These discount stores do not sell alcohol or tobacco. If you need these items, you will need to visit a Migros or a local &quot;Tekel&quot; shop.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Mid-Range &amp; Full-Service Supermarkets</h3>
+            <div class="hic-section-content">
+                <p>If you want a wider selection of international brands, a fresh butcher counter, or a cold beer, head to these larger stores.</p>
+                <p>Migros: The most famous chain in Turkey. They use a &quot;M&quot; ranking system: a Migros Jet is a small corner shop, while a 5M Migros is a massive hypermarket. The Migros near the Side Saturday Market area is a great one-stop shop.</p>
+                <p>CarrefourSA: Similar to Migros, offering a mix of local and imported goods. Prices are slightly higher than BİM but the selection is much better.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">The Local Bazaars (Pazars)</h3>
+            <div class="hic-section-content">
+                <p>For the freshest and cheapest fruits, vegetables, olives, and spices, you must visit the weekly markets. Buying produce here is significantly cheaper than in any supermarket.</p>
+                <p>Saturday: Side Neighborhood Market</p>
+                <p>Located near the Side Mosque (Side Camii), this market is the most convenient for those staying in the resort center.</p>
+                <p>Hours: 08:00 – 13:00 (approx).</p>
+                <p>Budget Tip: Go after 12:00 PM; vendors often drop prices to clear stock before closing.</p>
+                <p>Monday &amp; Thursday: Manavgat Grand Bazaar</p>
+                <p>Manavgat is only 10 minutes from Side by dolmuş. This is the largest market in the region.</p>
+                <p>Monday: Mostly food, produce, and textiles.</p>
+                <p>Thursday: Heavy focus on clothing and &quot;genuine fake&quot; designer goods, but still has a massive food section.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Shopping Strategy: How To Save More</h3>
+            <div class="hic-section-content">
+                <p>The &quot;Tourist Tax&quot; in Old Town: Avoid buying bottled water or snacks in the &quot;Ancient Side&quot; harbor area. A bottle of water there can cost 5x more than at a BİM just 500 meters away.</p>
+                <p>The Migros Money Card: If you’re staying for more than a few days, ask the cashier at Migros for a &quot;Money Card.&quot; It costs a few Lira but gives you instant access to &quot;Buy 1 Get 1 Free&quot; deals and member-only discounts.</p>
+                <p>Lira vs. Euro: While many shops in Side accept Euro or GBP, the exchange rate used by small shops is usually poor. Always pay in Turkish Lira (TRY) at supermarkets to ensure you get the official bank rate.</p>
+                <p>Bring Your Own Bags: Like much of Europe, Turkish supermarkets charge for plastic bags. Bring a reusable tote to save a few Kuruş and help the environment.</p>
+                <p>Essential Turkish Grocery Vocabulary</p>
+                <p>İndirim: Discount / Sale</p>
+                <p>Ekmek: Bread (Standard loaves are very cheap and regulated by the government)</p>
+                <p>Manav: Greengrocer/Produce section</p>
+                <p>For those staying in the Kumköy or Evrenseki areas, look for the local &quot;Migros Jet&quot; or &quot;A101&quot; locations situated along the main boulevard; these are strategically placed to serve the holiday apartments at local prices.</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Side. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
