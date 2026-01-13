@@ -1,0 +1,421 @@
+<!-- Blog Content: Nightlife: Bars & Clubs - Alanya -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<!-- Hero Slider -->
+<div class="hic-hero-slider">
+<div class="hic-hero-slides" id="hicHeroSlides">
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 1" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_georgii_eletskikh2.webp"/>
+<div class="hic-hero-credit">📷 Alanya Georgii Eletskikh</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 2" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin4.webp"/>
+<div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 3" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin.webp"/>
+<div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 4" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_yuriy_vinnicov.webp"/>
+<div class="hic-hero-credit">📷 Alanya Yuriy Vinnicov</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 5" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_arthur_shuraev.webp"/>
+<div class="hic-hero-credit">📷 Alanya Arthur Shuraev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 6" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_georgii_eletskikh.webp"/>
+<div class="hic-hero-credit">📷 Alanya Georgii Eletskikh</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 7" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_igor_sporynin3.webp"/>
+<div class="hic-hero-credit">📷 Alanya Igor Sporynin</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Alanya - Photo 8" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/alanya/alanya_nihat_inci.webp"/>
+<div class="hic-hero-credit">📷 Alanya Nihat Inci</div>
+</div>
+</div>
+<!-- Centered Text Overlay -->
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">Аланія</h1>
+<p class="hic-hero-topic">🍺Нічне життя: бари та клуби</p>
+</div>
+<!-- Navigation Arrows -->
+<button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">❮</button>
+<button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">❯</button>
+<!-- Dots -->
+<div class="hic-hero-dots" id="hicHeroDots">
+<button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(1)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(2)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(3)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(4)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(5)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(6)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(7)"></button>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">Найкращі бари: атмосфера та атмосфера</h3>
+<div class="hic-section-content">
+<p>Барна сцена Аланії зосереджена біля гавані. Ви не просто йдете випити; ви йдете на "шоу".</p>
+<p>Las Vegas Cafe &amp; Bar: згідно з назвою, це найбільш енергійний бар у центрі. Очікуйте вогняні шоу барменів, танці персоналу на прилавках і невпинну суміш поп-музики та електронної музичної музики. Це найкраще місце для «розминки».</p>
+<p>The Doors (Rock Bar): для тих, хто віддає перевагу шкіряним курткам, а не лляним сорочкам. Це культове місце присвячене класичному року та металу. Тут панує сувора автентична атмосфера, яка різко контрастує з сусідніми поп-центрами.</p>
+<p>Harry’s Pub: більш спокійний паб у «європейському стилі». Це фаворит для любителів спорту та тих, хто хоче якісну пінту Efes із живою акустичною музикою, а не з гучним басом.</p>
+<p>Black Horse Bar: місцева легенда на тему Дикого Заходу. Він відомий тим, що є дружнім і трохи більш «місцевим», ніж туристичні пастки, пропонуючи чудове місце для спілкування до того, як клуби відкриють свої двері опівночі.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Нічні клуби: The Heavy Hitters</h3>
+<div class="hic-section-content">
+<p>Клуби в Аланії - це масивні, багаторівневі споруди. Більшість пропонує безкоштовний вхід, але вони заробляють на преміальних цінах на напої.</p>
+<p>Нічний клуб «Робін Гуд»: найбільший у центрі міста, займає чотири поверхи. Кожен рівень має різні жанри:</p>
+<p>1-й поверх: латино та реггетон.</p>
+<p>2-й поверх: R&amp;B і Hip-Hop.</p>
+<p>Верхні поверхи/дах: електронна та турецька поп-музика під небом.</p>
+<p>Havana Club: кубинська тематика. Він відомий своїми професійними латиноамериканськими танцювальними шоу та трохи більш «висококласним» настроєм. Музика значною мірою схиляється до міжнародних хітів і хауса.</p>
+<p>Club Summer Garden (Konaklı): Розташований приблизно в 10 км від центру, це, можливо, найкращий клуб у Туреччині. Це тропічний рай під відкритим небом із пальмами та величезним акваріумом для акул. Грає суміш англійських, російських і турецьких хітів.</p>
+<p>Illusion Event Hall: Розташований у районі Дінек Марина, це те місце, куди можна відчути враження «у стилі Вегаса». Тут пропонуються світлові шоу світового рівня, голографічні проекції та часто приймаються міжнародні діджеї.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Бари на даху: найкращі види</h3>
+<div class="hic-section-content">
+<p>Якщо ви хочете втекти від багатолюдних вулиць і побачити замок Аланії, освітлений вночі, підніміться вгору.</p>
+<p>NOA Rooftop (готель Numa Port): найкращий вибір для вишуканого вечора. Розташований безпосередньо над гаванню, він пропонує 360-градусний вид на Червону вежу та Середземне море. Він ідеально підходить для коктейлів і фото заходу сонця.</p>
+<p>Havana Club Terrace: Хоча верхній поверх є частиною нічного клубу, рано ввечері він функціонує як фантастичний лаунж на даху, забезпечуючи прохолодну точку огляду на суєту гавані.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Пляжні клуби: денні вечірки</h3>
+<div class="hic-section-content">
+<p>Пляжні клуби Аланії є серцем переходу «з дня до півночі».</p>
+<p>Goya Beach Club: заклад, орієнтований на дорослих, із пейзажним басейном і баром у басейні. Ді-джей-сети починаються після обіду, створюючи шикарну вечірку високого класу, яка триває допізна.</p>
+<p>Havana Beach Club: розташований на знаменитому пляжі Клеопатри, це місце більш спокійне протягом дня, але влаштовує легендарні пінні вечірки та пляжні дискотеки, коли заходить сонце.</p>
+<p>Illusion Palm Beach: відомий своєю молодшою ​​та енергійною аудиторією. Вони часто влаштовують тематичні вечірки біля басейну з танцюристами та живими виконавцями.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Ціни на алкоголь (поточні оцінки на 2026 рік)</h3>
+<div class="hic-section-content">
+<p>Ціни в Аланії значно відрізняються між «Місцевими пабами» та «Нічними клубами гавані». Через інфляцію та податки ціни в туристичних районах часто вказуються в євро (€) або доларах США ($), щоб підтримувати стабільність.</p>
+<p>Тип напоїв Місцевий бар / паб Елітний клуб / на даху</p>
+<p>Місцеве пиво (Efes 50cl) 180 – 250 TL (€5 – €7) 350 – 500 TL (€10 – €14)</p>
+<p>Імпортне пиво (Corona/Heineken) 300 – 350 TL (€8 – €10) 450+ TL (€12+)</p>
+<p>Стандартний коктейль 400–600 TL (11–16 євро) 700–1000 TL (20–28 євро)</p>
+<p>Спирт + міксер (джин/горілка) 350 – 500 TL (€10 – €14) 600 – 900 TL (€17 – €25)</p>
+<p>Обслуговування пляшок (горілка/ракія) Н/Д 4000–8000 TL (110–220 євро)</p>
+<p>Професійна порада: завжди перевіряйте, чи враховано плату за обслуговування (зазвичай 10%) у рахунку. У районі гавані є стандартною практикою підтверджувати ціну напою перед тим, як його розлити, щоб уникнути сюрпризів, пов’язаних із «ціноутворенням для туристів».</p>
+<p>Пік сезону нічного життя в Аланії зазвичай припадає на травень-жовтень, причому більшість великих клубів під відкритим небом закриваються або переїжджають у приміщення протягом зимових місяців. Щоб отримати найкращий досвід, почніть свій вечір у барі біля гавані близько 22:00 і вирушайте до великих клубів, таких як Robin Hood або Summer Garden, після півночі, коли енергія справді досягає максимуму.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Дякуємо за читання!</h4>
+<p>Ми сподіваємося, що цей путівник допоможе вам дослідити Аланію. Залишайтеся з нами, щоб отримати більше порад для подорожей!</p>
+<p class="hic-cta-tagline">До зустрічі в наступній пригоді! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->

@@ -1,0 +1,373 @@
+<!-- Blog Content: Best Restaurants - Antalya -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<!-- Hero Slider -->
+<div class="hic-hero-slider">
+<div class="hic-hero-slides" id="hicHeroSlides">
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 1" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen.webp"/>
+<div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 2" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_erik_karits.webp"/>
+<div class="hic-hero-credit">📷 Antalya Erik Karits</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 3" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor.webp"/>
+<div class="hic-hero-credit">📷 Antalya Igor</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 4" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_evgeny_matveev.webp"/>
+<div class="hic-hero-credit">📷 Antalya Evgeny Matveev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 5" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_viktor_nikolaev.webp"/>
+<div class="hic-hero-credit">📷 Antalya Viktor Nikolaev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 6" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen_2.webp"/>
+<div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 7" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_mishel_lazarenko.webp"/>
+<div class="hic-hero-credit">📷 Antalya Mishel Lazarenko</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 8" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor_sporynin.webp"/>
+<div class="hic-hero-credit">📷 Antalya Igor Sporynin</div>
+</div>
+</div>
+<!-- Centered Text Overlay -->
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">Анталия</h1>
+<p class="hic-hero-topic">🍽️Лучшие рестораны</p>
+</div>
+<!-- Navigation Arrows -->
+<button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">❮</button>
+<button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">❯</button>
+<!-- Dots -->
+<div class="hic-hero-dots" id="hicHeroDots">
+<button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(1)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(2)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(3)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(4)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(5)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(6)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(7)"></button>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">Обзор</h3>
+<div class="hic-section-content">
+<p>Это комплексное профессиональное руководство по питанию, созданное для вашего блога. Он структурирован с учетом удобочитаемости, SEO (неявного) и реальной ценности для путешественника. Кулинарная жемчужина Средиземноморья: полный путеводитель по лучшим ресторанам Антальи (издание 2025 г.) Анталья — это больше, чем просто бирюзовые воды и древние руины; это кулинарная электростанция. В отличие от пропитанного специями востока или залитого оливковым маслом Эгейского моря, Анталия находится в уникальной зоне «Златовласки». Здесь горы встречаются со Средиземным морем, а это значит, что вы получаете свежайшие морепродукты, невероятные горные травы, цитрусовые и домашний скот. Ищете ли вы романтический ужин в руинах Старого города (Калеичи) или праздник с пластиковыми стульями, который часто посещают местные жители, в этом путеводителе представлены самые лучшие места, где можно поесть в Анталии прямо сейчас. 🏆 Иконка: Если вы едите только в одном месте Если в Анталии у вас есть время только на один серьезный обед, он должен быть здесь. 7 Mehmet The Vibe: кулинарное заведение. Расположенный на холме с видом на пляж Коньяалты, это место местные жители принимают высокопоставленных гостей. Это высококлассное, но шумное заведение с белыми скатертями и огромной профессиональной командой обслуживания. Почему он лучший: основанный в 1937 году, он устраняет разрыв между традиционными турецкими рецептами и современной гастрономией, не будучи при этом претенциозным. Ингредиенты исключительно сезонные. Что заказать: Салат «Сезен Аксу»: салат из свежих трав, названный в честь известной турецкой поп-звезды. Пияз по-антальски: Вы не сможете покинуть Анталию, не попробовав этот теплый салат из белой фасоли, заправленный насыщенным соусом тахини (в отличие от других версий на основе уксуса). Козленок с Эриште: козлятина, приготовленная на медленном огне, подается с лапшой ручной работы. Десерт из тыквы (Кабак Татлысы): лучший в городе. Грецкие орехи и тахини поверх идеально засахаренной тыквы. 🍷 Изысканная кухня и романтическая атмосфера (Калейчи/Старый город) Старый город волшебен ночью. Эти рестораны предлагают лучшее сочетание истории, атмосферы и меню от шеф-повара. Ресторан изысканной кухни Seraser The Vibe: атмосферная роскошь. Расположенный в 300-летнем османском особняке с потрясающим внутренним двором, это лучший выбор для романтического свидания или торжества. Еда: Международная кухня с турецкими корнями. Ожидайте тщательной сервировки и серьезной карты вин. Обязательно попробуйте: их макароны ручной работы (например, равиоли с бычьим хвостом) и морской окунь, завернутый в виноградные листья. Vanilla The Vibe: современный, шикарный и космополитичный. Расположенный недалеко от ворот Адриана ресторан Vanilla сломал шаблон ресторанов-ловушек для туристов в Старом городе, предложив действительно превосходную современную кухню. Еда: смесь французского, итальянского и азиатского влияния. Обязательно попробуйте: говядину «Веллингтон» (часто считающуюся лучшей в городе) и карри в тайском стиле, если вам нужно отдохнуть от турецких вкусов. Ресторан Arma The Vibe: Непревзойденные виды. Расположенный на скалах прямо над пристанью, вид на береговую линию и древнюю гавань захватывает дух, особенно на закате. Еда: элитные морепродукты и классика средиземноморской кухни. Обязательно попробуйте: морской окунь в соленой корочке и кальмары. Примечание. Здесь вы платите больше за вид, но фотосессия того стоит. 🍢 Аутентичные местные блюда (кебабы и пияз) Забудьте о шведском столе в отеле. Здесь едят настоящие антальцы. Шишчи Рамазан (Коркут) Атмосфера: быстрая, громкая и невероятно аутентичная. Это не то место, где можно задерживаться часами; это место, где можно съесть лучшие фрикадельки (кёфте) и шашлыки в вашей жизни. Еда: Анталия славится «Шиш Кёфте» (фрикадельками на вертеле). Обязательно попробуйте: порцию Шиш Кёфте, гарнир Пияза (важно!) и острый маринованный перец. Закончите пудингом из пригоревшего молока. Sıralı Kebap The Vibe: традиционный кебаб сочетается с современной роскошью. Он расположен на скалах Лары и предлагает более изысканный кебаб, чем уличные заведения. Еда: Инновационный подход к классическим шашлыкам. Обязательно попробуйте: десерт «Ченнет Чамуру» («Небесная грязь») и потрясающие на вид шашлыки метровой длины. 🐟 Морепродукты со средиземноморским бризом В Анталии есть два основных типа мест с морепродуктами: туристические в гавани (часто с завышенными ценами) и устоявшиеся вдоль скал. Придерживайтесь последнего. Лара Балык Эви The Vibe: четкая, чистая и профессиональная. Расположенный в районе Лара, он расположен высоко на скалах с панорамным видом на море. Он популярен среди местных семей и деловых ужинов. Еда: Массивная выставка свежего улова, продаваемого килограммами. Обязательно попробуйте: кальмары на гриле, гриду (белый морской окунь — местная призовая рыба) и соленую закуску «Морские бобы» (Дениз Бёрюльчези). Iskele Balık Pişiricisi The Vibe: непринужденная атмосфера, ориентированная исключительно на рыбу. «Пиширичи» подразумевает, что они готовят то, что вы выбираете. Это похоже не столько на «концептуальный» ресторан, сколько на настоящий рыбный дом. Еда: Чрезвычайно свежее меззе и идеально приготовленная на гриле рыба. Обязательно попробуйте: запеканка из креветок в сливочном масле (Karides Güveç). 🍳Завтрак и сладости Турецкий завтрак — это ритуал, а не еда. Börekçi Tevfik The Vibe: крошечный ностальгический магазин, существующий уже несколько поколений. Специальность: Серпме Бёрек. Это умирающее искусство, когда тесто раскатывают вручную до толщины бумаги, наполняют сыром или мясным фаршем и выпекают до золотистого цвета. Многие считают его лучшим буреком в Турции. Примечание. Приходите пораньше (до 11:00), так как он часто распродает билеты. Акдениз Дондурма или Замора. Фирменное блюдо: Яник Дондурма (подгоревшее мороженое). Это уникальный для региона Анталии вкус, приготовленный из козьего молока, которое намеренно поджигают при кипячении. Вкус: На вкус дымный, почти как зефир у костра. Это противоречиво — вы либо полюбите это, либо возненавидите, — но вы должны это попробовать. 📝 Практические советы для гурманов при бронировании в Анталии: незаменимы для 7 Mehmet, Seraser и Vanilla, особенно в летний сезон (май – сентябрь). Правило «пияза»: на большей части территории Турции пияз — это салат с луком и уксусом. В Анталии его подают теплым со сливочным соусом Таратор (тахини, лимон, чеснок и уксус). Он насыщенный и тяжелый — не заказывайте его как «легкий гарнир». Чаевые: в ресторанах стандартны 10-15%. Вода: Всегда заказывайте бутилированную воду (şişe su); Водопроводная вода обычно не потребляется.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Спасибо за чтение!</h4>
+<p>Мы надеемся, что это руководство поможет вам изучить Анталию. Оставайтесь с нами, чтобы получить больше советов путешественникам!</p>
+<p class="hic-cta-tagline">Увидимся в следующем приключении! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->

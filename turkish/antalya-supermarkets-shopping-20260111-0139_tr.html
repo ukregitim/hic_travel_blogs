@@ -1,0 +1,446 @@
+<!-- Blog Content: Cheap Supermarkets & Shopping - Antalya -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<!-- Hero Slider -->
+<div class="hic-hero-slider">
+<div class="hic-hero-slides" id="hicHeroSlides">
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 1" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen.webp"/>
+<div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 2" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_erik_karits.webp"/>
+<div class="hic-hero-credit">📷 Antalya Erik Karits</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 3" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor.webp"/>
+<div class="hic-hero-credit">📷 Antalya Igor</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 4" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_evgeny_matveev.webp"/>
+<div class="hic-hero-credit">📷 Antalya Evgeny Matveev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 5" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_viktor_nikolaev.webp"/>
+<div class="hic-hero-credit">📷 Antalya Viktor Nikolaev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 6" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen_2.webp"/>
+<div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 7" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_mishel_lazarenko.webp"/>
+<div class="hic-hero-credit">📷 Antalya Mishel Lazarenko</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 8" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor_sporynin.webp"/>
+<div class="hic-hero-credit">📷 Antalya Igor Sporynin</div>
+</div>
+</div>
+<!-- Centered Text Overlay -->
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">antalya</h1>
+<p class="hic-hero-topic">🛒Ucuz Süpermarketler ve Alışveriş</p>
+</div>
+<!-- Navigation Arrows -->
+<button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">❮</button>
+<button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">❯</button>
+<!-- Dots -->
+<div class="hic-hero-dots" id="hicHeroDots">
+<button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(1)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(2)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(3)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(4)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(5)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(6)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(7)"></button>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">"Üç Büyük" Büyük İndirimciler</h3>
+<div class="hic-section-content">
+<p>Amacınız sadece tasarruf etmekse Türkiye’nin üç ana yüksek indirim zincirine mutlaka uğramak isteyeceksiniz. Hemen hemen her mahalledeler (çoğunlukla yan yana). Taban fiyatları zaten çok düşük olduğundan sadakat kartı sunmuyorlar.</p>
+<p>BİM (Birleşik Mağazalar)</p>
+<p>En İyisi: Temel gıdalar, süt ürünleri ve genel ev eşyaları.</p>
+<p>Vibe: Gösterişten uzak, palet tarzı ekran. BİM, Türkiye'de yüksek indirimin öncüsüdür.</p>
+<p>Dost markalı süt ürünleri (yoğurt, süt, ayran) – mükemmel kalite ve ucuz.</p>
+<p>Makarna ve Tahıllar: Özel markalı makarna ve pirinçleri büyük markalara göre çok daha ucuz.</p>
+<p>Salı/Cuma Kampanyaları: "Aktüel Ürünler" kataloğuna göz atın. Haftada iki kez sınırlı sayıda elektronik eşya, mutfak eşyası veya tekstil ürünleri getiriyorlar.</p>
+<p>En İyisi: BİM'e göre biraz daha geniş markalı ürün yelpazesi.</p>
+<p>The Vibe: Parlak sarı markalama, BİM'e çok benzer ancak daha yüksek envanter nedeniyle genellikle biraz daha karmaşık bir his veriyor.</p>
+<p>Atıştırmalıklar ve Çikolatalar: Taban fiyatlarla harika Türk bisküvileri ve çikolata seçenekleri.</p>
+<p>Temizlik Malzemeleri: Özel markalı temizlik ürünleri (ABC vb.) oldukça etkili ve ucuzdur.</p>
+<p>Et: Paketlenmiş kıyma (kıyma) ve tavukta genellikle rekabetçi fiyatlar vardır.</p>
+<p>En İyisi: İndirimli fiyatlarla taze ürünler ve tanınmış markalar.</p>
+<p>Vibe: Sarı ve kırmızı markalama. ŞOK, Yıldız Holding (Godiva/Ülker'in sahibi) tarafından satın alındı, bu nedenle birçok Ülker ürününü stokluyorlar.</p>
+<p>Piyale markalı un ve makarna (ŞOK'a özel tarihi bir Türk markası).</p>
+<p>Minto marka dondurma ve ikramlıklar.</p>
+<p>Taze Ürünler: Genellikle "Şok Market Manav" olarak bilinen BİM veya A101'e göre biraz daha iyi meyve/sebze reyonuna sahip olduğu düşünülür.</p>
+<p>Özellik BİM A101 Şok</p>
+<p>Fiyat Noktası ⭐⭐⭐⭐⭐ (En Düşük) ⭐⭐⭐⭐⭐ (En Düşük) ⭐⭐⭐⭐ (Düşük)</p>
+<p>Marka Çeşitliliği Düşük (Çoğunlukla Private Label) Orta Orta-Yüksek</p>
+<p>Kaliteli Temel Temel Mal Üretin</p>
+<p>Fırın Ön Paketli Önceden Paketlenmiş Önceden Paketlenmiş</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">"Yumuşak" İndirimciler ve Süpermarketler</h3>
+<div class="hic-section-content">
+<p>Bazen, sıkı indirim yapanların satmadığı belirli içeriklere (bitki bazlı süt, uluslararası peynirler, alkol) ihtiyaç duyarsınız.</p>
+<p>Migros: Türkiye'nin "Tam Gıdası" ama kademeli bir sistemle.</p>
+<p>Migros Jet: Küçük marketler (daha pahalı).</p>
+<p>M Migros: Standart süpermarket.</p>
+<p>5M Migros: Büyük hipermarketler (genellikle Konyaaltı'ndaki Migros AVM gibi alışveriş merkezlerinde).</p>
+<p>Bütçe İpucu: "Money Club Card" almalısınız (kasada isteyin, 1-2 TL veya bedava). Onsuz, önemli ölçüde daha fazla ödersiniz. Sarı etiketleri (indirimler) arayın.</p>
+<p>File Market: BİM'in sahibi olduğu, süpermarket konseptine sahip yeni bir oyuncu. Mükemmel bir fırın bölümü var ve toplu ürünler satıyorlar. Yüksek kaliteye sahip özel etiketi "Harras" için şiddetle tavsiye edilir.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Fiyat Anlık Görüntüsü (2025/2026 Tahminleri)</h3>
+<div class="hic-section-content">
+<p>Fiyatlar enflasyon nedeniyle dalgalanıyor, ancak bu size Antalya'da "ucuz" bir fiyat için göreceli bir temel sağlar.</p>
+<p>Kalem Tahmini Bütçe Fiyatı (TL) Notlar</p>
+<p>Ekmek (Ekmek) 10 - 15 TL Bakkal veya marketten standart beyaz ekmek.</p>
+<p>Süt (1L) 30 - 40 TL Özel markalı (Dost/Birşah).</p>
+<p>Yumurta (30'lu paket) 110 - 140 TL En uygun fiyata 30'lu paketi satın alın.</p>
+<p>Tavuk Göğsü (1kg) 200 - 240 TL Fiyatlar haftalık olarak değişmektedir; A101/BİM buzdolaplarını kontrol edin.</p>
+<p>Domates (1kg) 20 - 40 TL Çarşıda çok daha ucuz (aşağıya bakın).</p>
+<p>Makarna (500g) 15 - 20 TL Özel markalı markalar.</p>
+<p>Su (5L) 25 - 35 TL Antalya'daki musluk suyu yıkanmak için güvenlidir ancak genellikle tadı için içilmez.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Gerçek Bütçe Hilesi: Semt Pazarları</h3>
+<div class="hic-section-content">
+<p>Gerçekten tasarruf etmek için süpermarketlerden meyve ve sebze satın almayın. Haftalık "Pazar"a gidin. Ürünler daha taze, organik ve %30-50 daha ucuz.</p>
+<p>Antalya'nın Önemli Çarşıları</p>
+<p>Pazartesi: Manavgat Pazarı (büyük, turistik ama ucuz ürünler) veya Etiler Pazarı (Muratpaşa - çok yerel).</p>
+<p>Salı: Liman Pazarı (Konyaaltı - yabancılar/Ruslar arasında popüler).</p>
+<p>Çarşamba: Yeşilbahçe Pazarı (Lara yakını).</p>
+<p>Cuma: Güzeloba Pazarı (Lara bölgesi - devasa, kıyafete de uygun).</p>
+<p>Cumartesi: Lara / Şirinyalı Pazarı (Lüks bir bölge, biraz daha pahalı ama kaliteli).</p>
+<p>Pazar: Pınarbaşı Pazarı (Akdeniz Üniversitesi yakınında - çok ucuz öğrenci fiyatları).</p>
+<p>Geç Git: Kapanıştan 1 saat önce giderseniz (yaklaşık 18:00), satıcılar stokları boşaltmak için fiyatları düşürür.</p>
+<p>Nakit Getirin: Meyve tezgahlarında kartlar nadiren kabul edilir.</p>
+<p>Teraziyi İzleyin: "Yarım Kilo" yarım kilo anlamına gelir.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Antalya İçin Özet Bütçeli Alışveriş İpuçları</h3>
+<div class="hic-section-content">
+<p>"Halk Ekmek" satın alın: Belediyenin işlettiği "Halk Ekmek" büfelerine bakın. Ekmekleri marketlerden çok daha ucuza satıyorlar.</p>
+<p>Alkol Pahalıdır: Vergiler nedeniyle alkol pahalıdır. Migros, şarap/bira satışlarında en iyi seçenektir. Yüksek indirim mağazaları (BİM/A101) alkol ve domuz eti ürünleri satmamaktadır.</p>
+<p>Musluk Suyu: Eviniz için 19L'lik bir "Damacana" (büyük sürahi) satın alın. Yeniden doldurmanın maliyeti yaklaşık 100-130 TL'dir ve küçük şişe satın almaktan çok daha ucuzdur.</p>
+<p>Tuvalet malzemeleri: Şampuan, deterjan ve kozmetik ürünleri için "Eve" veya "Gratis" mağazalarına bakın. Genellikle süpermarketlerden daha ucuz olmalarını sağlayan %50 indirime sahiptirler.</p>
+<p>Hangi ilçede (Konyaaltı, Lara, Kaleiçi gibi) kaldığınızı bana bildirmeniz yeterli.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Okuduğunuz için teşekkürler!</h4>
+<p>Bu rehberin Antalya'yı keşfetmenize yardımcı olacağını umuyoruz. Daha fazla seyahat ipucu için bizi takip etmeye devam edin!</p>
+<p class="hic-cta-tagline">Bir sonraki macerada görüşmek üzere! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->

@@ -1,0 +1,432 @@
+<!-- Blog Content: Nightlife: Bars & Clubs - Antalya -->
+<!-- Generated: 2026-01-11 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<!-- Hero Slider -->
+<div class="hic-hero-slider">
+<div class="hic-hero-slides" id="hicHeroSlides">
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 1" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen.webp"/>
+<div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 2" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_erik_karits.webp"/>
+<div class="hic-hero-credit">📷 Antalya Erik Karits</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 3" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor.webp"/>
+<div class="hic-hero-credit">📷 Antalya Igor</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 4" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_evgeny_matveev.webp"/>
+<div class="hic-hero-credit">📷 Antalya Evgeny Matveev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 5" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_viktor_nikolaev.webp"/>
+<div class="hic-hero-credit">📷 Antalya Viktor Nikolaev</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 6" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_berthan_colgecen_2.webp"/>
+<div class="hic-hero-credit">📷 Antalya Berthan Colgecen</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 7" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_mishel_lazarenko.webp"/>
+<div class="hic-hero-credit">📷 Antalya Mishel Lazarenko</div>
+</div>
+<div class="hic-hero-slide">
+<img alt="Antalya - Photo 8" src="https://raw.githubusercontent.com/ukregitim/hic_travel_blogs/main/images/antalya/antalya_igor_sporynin.webp"/>
+<div class="hic-hero-credit">📷 Antalya Igor Sporynin</div>
+</div>
+</div>
+<!-- Centered Text Overlay -->
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">Анталія</h1>
+<p class="hic-hero-topic">🍺Нічне життя: бари та клуби</p>
+</div>
+<!-- Navigation Arrows -->
+<button class="hic-hero-btn hic-hero-prev" onclick="hicHeroMove(-1)">❮</button>
+<button class="hic-hero-btn hic-hero-next" onclick="hicHeroMove(1)">❯</button>
+<!-- Dots -->
+<div class="hic-hero-dots" id="hicHeroDots">
+<button class="hic-hero-dot active" onclick="hicHeroGo(0)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(1)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(2)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(3)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(4)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(5)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(6)"></button>
+<button class="hic-hero-dot" onclick="hicHeroGo(7)"></button>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">Найкращі бари: атмосфера та реміснича атмосфера</h3>
+<div class="hic-section-content">
+<p>Для тих, хто хоче розмов, якісних напоїв і яскравих емоцій.</p>
+<p>Sheffield Pub (Kaleiçi/Старе місто)</p>
+<p>The Vibe: шматочок Лондона в Середземному морі. Паб Sheffield вважається найкращим місцем для любителів крафтового пива. Він уникає відчуття «пастки для туристів», пропонуючи затишний інтер’єр з дерев’яними панелями та спокійну садову зону.</p>
+<p>Найкраще для: рейси з крафтовим пивом, невимушені вечори та втеча від гучного басу сусідніх клубів.</p>
+<p>Вибір напоїв: запитайте вибір турецького крафтового пива (Gara Guzu є улюбленим місцевим).</p>
+<p>Атмосфера: витончена, висококласна та акустична. Цей джаз-бар світового рівня розташований у готелі «Акра». Освітлення тьмяне та примхливе, меблі оздоблені оксамитом, а акустика створена для живих виступів.</p>
+<p>Найкраще для: любителів джазу, вечірніх побачень і коктейлів для «дорослих».</p>
+<p>Музика: живий джаз, блюз, соул і фанк.</p>
+<p>Бар Up Shot (Kaleiçi/Старе місто)</p>
+<p>Атмосфера: висока енергія на вузькій вулиці. Up Shot є серцем сцени «Вуличної вечірки» в Старому місті. Ді-джей грає для натовпу, що стоїть у провулку. Це суворо, автентично та неймовірно весело.</p>
+<p>Найкраще для: зустрічі з місцевими жителями та танці без зобов’язань у великому нічному клубі.</p>
+<p>Музика: електронні, Deep House та DJ-сети.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Нічні клуби: «велика трійка»</h3>
+<div class="hic-section-content">
+<p>Клубна сцена Анталії розділена. Для масових видовищ під відкритим небом ви їдете в Кемер (45 хвилин від центру). Для шикарних, ошатних клубів зупиніться в Ларі.</p>
+<p>Ceila Club (Лара/Центр міста)</p>
+<p>The Vibe: "See and be seen." Ceila is an open-air venue right on the cliffs. It is stylish and attracts a well-dressed crowd of locals and expats. The decor is modern with neon accents and VIP lounges.</p>
+<p>Музика: Commercial House, турецькі поп-ремікси та Top 40.</p>
+<p>Примітка: тут суворо дотримується дрес-код. Уникайте пляжного одягу.</p>
+<p>Club Inferno &amp; Aura Club (Кемер)</p>
+<p>The Vibe: Абсолютний хаос (в хорошому сенсі). Це «Супер-клуби» Турецької Рив'єри. Розташовані в Кемері, вони вміщують тисячі людей. Очікуйте пінних вечірок, танцюристів гоу-гоу, фаєр-шоу та запрошених діджеїв зі знаменитостей.</p>
+<p>Музика: EDM (електронна танцювальна музика), Big Room House і Hardstyle.</p>
+<p>Логістика: це 45+ хвилин від центру Анталії. У більшості готелів курсують маршрутні автобуси; в іншому випадку потрібен приватний трансфер.</p>
+<p>The Vibe: висхідна зірка в районі Лара. Він розташований на скелі з фантастичним краєвидом і пропонує гібридний досвід: ресторан увечері, клуб для перекачування вночі.</p>
+<p>Музика: мейнстрімові хіти та виступ ді-джеїв.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Бари на даху: найкращі види</h3>
+<div class="hic-section-content">
+<p>Для ідеального знімка в Instagram або романтичного заходу сонця.</p>
+<p>Ресторан і бар Asmani (Лара)</p>
+<p>Вид: неперевершений. Розташований на даху готелю Akra, він пропонує 360-градусний панорамний вид на гори Bey Dağları та Середземне море.</p>
+<p>Досвід: вишукана кухня поєднується з елітною міксологією. Це дорого, але воно того варте для години заходу сонця.</p>
+<p>Старе місто (Kaleiçi)</p>
+<p>Вид: тераса з видом на знамениті теракотові дахи Старого міста з морем на задньому плані.</p>
+<p>Досвід: богемний і невимушений. Таке відчуття, ніби таємний сад над містом. Чудово підходить для вина та охолоджених електронних ритмів.</p>
+<p>Castle Café &amp; Bar (Kaleiçi)</p>
+<p>Краєвид: розташований прямо на краю скель біля вежі Хідирлик. Ви практично бовтаєтеся над гаванню.</p>
+<p>Досвід: дружній до туристів і невимушений. Піти сюди на пиво ввечері, щоб подивитися, як човни повертаються до пристані.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Довідник цін на алкоголь на 2025/2026 рр</h3>
+<div class="hic-section-content">
+<p>Примітка: Туреччина переживає високу інфляцію. Ціни коливаються. Це розрахунки на сезон 2025, які базуються на поточних трендах.</p>
+<p>Діапазон цін товару (TL) Прибл. USD ($) Прибл. євро (€)</p>
+<p>Місцеве пиво (Efes/Tuborg) 180 TL – 250 TL 5 – 7 доларів 5 – 7 євро</p>
+<p>Імпортне/крафтове пиво 250 TL – 350 TL 7 – 10 TL 7 – 10 €</p>
+<p>Стандартний коктейль 400 TL – 600 TL 11 – 17 TL 11 – 16 €</p>
+<p>Келих вина 300 TL – 450 TL 8 – 13 доларів США 8 – 12 євро</p>
+<p>Вступ до клубу (обкладинка) 500 TL – 1500 TL 15 – 45 TL 14 – 40 €</p>
+<p>Супермаркети/кіоски: Набагато дешевше. Пиво коштує приблизно 60–90 TL (2–3 $).</p>
+<p>«Туристичні» ціни: у клубах Кемера ціни можуть піднятися. Завжди запитуйте меню перед замовленням, щоб уникнути несподіваного рахунку за коктейль у 20 доларів.</p>
+<p>Kaleiçi (Старе місто): придатний для прогулянок, історичний, рок/пабні настрої, повсякденний одяг.</p>
+<p>Лара: Елітний, ошатний, коктейльні лаунжі, хаус-музика.</p>
+<p>Кемер: Великі клуби, EDM, дикі вечірки, потрібні подорожі.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Дякуємо за читання!</h4>
+<p>Ми сподіваємося, що цей посібник допоможе вам дослідити Анталію. Залишайтеся з нами, щоб отримати більше порад для подорожей!</p>
+<p class="hic-cta-tagline">До зустрічі в наступній пригоді! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->
