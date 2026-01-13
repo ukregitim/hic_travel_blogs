@@ -1,0 +1,388 @@
+<!-- Blog Content: Best Restaurants - Manavgat -->
+<!-- Generated: 2026-01-10 | holidayiscalling.com -->
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+<div class="hic-blog">
+<div class="hic-hero-slider" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+<div class="hic-hero-content">
+<h1 class="hic-hero-city">Манавгат</h1>
+<p class="hic-hero-topic">🍽️Найкращі ресторани</p>
+</div>
+</div>
+<div class="hic-content">
+<div class="hic-section">
+<h3 class="hic-section-title">Найкраще для вишуканих страв і атмосфери (збоку)</h3>
+<div class="hic-section-content">
+<p>Ці місця ідеально підходять для романтичного вечора чи особливого свята. З них зазвичай відкривається вид на захід сонця над руїнами або морем.</p>
+<p>Ресторан Side Orfoz</p>
+<p>Атмосфера: витончена та романтична. Розташований біля гавані з палубою прямо біля моря.</p>
+<p>Кухня: морепродукти та міжнародна кухня. Відомий свіжою рибою, кальмарами та високоякісним обслуговуванням.</p>
+<p>Найкраще для: вечеря на заході сонця, де ви можете почути плескіт хвиль, потягуючи турецьке вино.</p>
+<p>Ресторан і нічний клуб Карма</p>
+<p>Атмосфера: модна та енергійна. Він починається як високоякісний ресторан, а пізніше ввечері перетворюється на стильний лаунж/клуб.</p>
+<p>Кухня: Інтернаціональний ф'южн. Стейки, суші та коктейлі.</p>
+<p>Найкраще для: пари або групи, які хочуть вечерю з танцями, не змінюючи місця.</p>
+<p>Ресторан-бар «Серенада».</p>
+<p>Атмосфера: висока оцінка за теплу гостинність (часто отримує нагороди TripAdvisor). Він має концепцію мексиканського ф’южн-стейку.</p>
+<p>Кухня: стейки, фахітас, мексиканські страви.</p>
+<p>Найкраще для: відвідувачам, які хочуть відпочити від турецької їжі або ідеально приготованого стейка.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Найкраще для автентичної турецької кухні (Центр Манавгата)</h3>
+<div class="hic-section-content">
+<p>Якщо ви хочете їсти там, де їдять місцеві жителі (і платити за місцевими цінами), вирушайте в місто Манавгат, подалі від узбережжя Сіде.</p>
+<p>Ресторан Cihan Pide Kebap</p>
+<p>Атмосфера: невимушена, метушлива та невибаглива. Це місцевий заклад.</p>
+<p>Кухня: традиційна турецька піца (піца) і кебаби.</p>
+<p>Варто спробувати: Kuşbaşılı Pide (піде з нарізаного кубиками м’яса) або змішаний гриль.</p>
+<p>Атмосфера: «Касап» означає різник. Це концепція м’ясної крамниці, яка перетворилася на ресторан, де ви вибираєте м’ясо з прилавка, а вони смажать його для вас.</p>
+<p>Кухня: Чисте, якісне м'ясо. Баранячі відбивні, фрикадельки (köfte) і сукук.</p>
+<p>Найкраще для: м’ясоїдних, які шукають найсвіжішого м’яса в місті.</p>
+<p>Kamer Ocakbaşı (Сіде)</p>
+<p>Атмосфера: традиційний стиль "Ocakbaşı", де ви можете посидіти біля великого мідного гриля та спостерігати за роботою шеф-кухаря.</p>
+<p>Кухня: адана кебаб, шашлик з баранини, тарілки мезе.</p>
+<p>Найкраще для: Традиційний турецький гриль із трохи вишуканішою атмосферою, ніж заклади в центрі міста.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Найкраще для ресторанів на річці та природи (річка Манавгат/водоспад)</h3>
+<div class="hic-section-content">
+<p>Манавгат відомий своєю річкою та водоспадом. Харчування тут пов’язане з прохолодним вітерцем і шумом води, що тече.</p>
+<p>Ресторан Taş Konak</p>
+<p>Розташування: біля водоспаду Манавгат (район Шелале).</p>
+<p>Атмосфера: сільська та спокійна. Вас оточують дерева та річка.</p>
+<p>Кухня: традиційний турецький сніданок (Serpme Kahvaltı) і форель на грилі.</p>
+<p>Найкраще для: довгий, ледачий бранч або освіжаючий обід після відвідин водоспадів.</p>
+<p>Розташування: далі, біля дамби Оймапінар (зона Зеленого каньйону).</p>
+<p>Атмосфера: захоплює дух. Розташований на висоті з видом на Зелене озеро.</p>
+<p>Кухня: риба на грилі (форель), запіканки, сільські страви.</p>
+<p>Найкраще підходить для: обідня втеча "Прихований камінь". Для цього потрібна машина або таксі, але краєвид неперевершений.</p>
+</div>
+</div>
+<div class="hic-section">
+<h3 class="hic-section-title">Найкраще для повсякденних страв на пляжі</h3>
+<div class="hic-section-content">
+<p>Q Beach Restaurant &amp; Lounge</p>
+<p>Розташування: пляж Сіде.</p>
+<p>Атмосфера: шикарна атмосфера пляжного клубу. Затишна розкіш із зручними сидіннями на піску чи палубі.</p>
+<p>Кухня: середземноморська, бургери, свіжі салати, коктейлі.</p>
+<p>Найкраще для: довгий обід, який перетворюється на післяобідні коктейлі.</p>
+<p>Категорія Назва ресторану Розташування Діапазон цін</p>
+<p>Fine Dining Side Orfoz Side Harbor High</p>
+<p>Середньовисокий стейк/мексиканська серенада</p>
+<p>Місцевий кебаб Cihan Pide Kebap Manavgat Center Low-Med</p>
+<p>М'ясник/гриль Дедем Касап Манавгат Центр Середній</p>
+<p>Річка/Природа Taş Konak Біля водоспаду Середній</p>
+<p>Beach Lounge Q Beach Side Beach High</p>
+<p>Практичні поради щодо обіду в Манавгаті</p>
+<p>Бронювання: місця для заходу сонця в Сіде (наприклад, Орфос або Карма) необхідно бронювати протягом літнього сезону (червень–вересень).</p>
+<p>Алкоголь: у більшості ресторанів у Сіде подають алкоголь. У центрі Манавгата в деяких традиційних закладах «Піде» можуть не подавати алкоголь, тому заздалегідь перевірте, чи хочете ви пива до шашлику.</p>
+<p>Транспорт: у старому місті Сіде лише для пішоходів. Вам потрібно буде взяти таксі або «Dolmuş» (мікроавтобус) до входу та пішки до гавані ресторанів.</p>
+</div>
+</div>
+<div class="hic-cta">
+<div class="hic-cta-icon">✈️</div>
+<h4>Дякуємо за читання!</h4>
+<p>Ми сподіваємося, що цей посібник допоможе вам дослідити Манавгат. Залишайтеся з нами, щоб отримати більше порад для подорожей!</p>
+<p class="hic-cta-tagline">До зустрічі в наступній пригоді! 🌍</p>
+</div>
+</div>
+</div>
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+<span class="hic-lightbox-close">×</span>
+<img alt="" id="hicLightboxImg" src=""/>
+</div>
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+<!-- End Blog Content -->
