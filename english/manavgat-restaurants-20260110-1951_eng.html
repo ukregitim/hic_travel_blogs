@@ -1,0 +1,463 @@
+<!-- Blog Content: Best Restaurants - Manavgat -->
+<!-- Generated: 2026-01-10 | holidayiscalling.com -->
+
+<!-- Google Fonts: Cinzel for historic city names -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.hic-blog { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.8; color: #333; }
+.hic-blog * { box-sizing: border-box; }
+
+/* ===== HERO SLIDER ===== */
+.hic-hero-slider {
+    position: relative;
+    width: 100%;
+    height: calc(80vh - 80px);
+    min-height: 450px;
+    max-height: 650px;
+    margin-top: 80px; /* Space for website topbar */
+    overflow: hidden;
+}
+
+.hic-hero-slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+.hic-hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hic-hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark overlay on each slide */
+.hic-hero-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.2) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+    );
+}
+
+/* Centered City Name */
+.hic-hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.hic-hero-city {
+    font-family: 'Cinzel', 'Times New Roman', Georgia, serif;
+    font-size: 6em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin: 0;
+    text-shadow: 4px 4px 25px rgba(0,0,0,0.6), 0 0 60px rgba(0,0,0,0.3);
+    animation: hicFadeInUp 1s ease;
+}
+
+.hic-hero-topic {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 15px;
+    opacity: 0.95;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: hicFadeInUp 1s ease 0.2s both;
+}
+
+.hic-hero-icon {
+    font-size: 1.3em;
+    margin-right: 8px;
+}
+
+@keyframes hicFadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slider Navigation Arrows - Professional Style */
+.hic-hero-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.8em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hic-hero-btn:hover {
+    background: rgba(0,0,0,0.6);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+}
+
+.hic-hero-btn:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.hic-hero-prev { left: 30px; }
+.hic-hero-next { right: 30px; }
+
+/* Slider Dots */
+.hic-hero-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.hic-hero-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hic-hero-dot:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.hic-hero-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+
+/* Image Credits */
+.hic-hero-credit {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85em;
+    z-index: 25;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    font-family: 'Segoe UI', sans-serif;
+    pointer-events: none;
+}
+
+/* ===== CONTENT AREA ===== */
+.hic-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Sections */
+.hic-section {
+    margin-bottom: 45px;
+}
+
+.hic-section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0066cc;
+    display: inline-block;
+}
+
+.hic-section-content p {
+    margin-bottom: 18px;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.9;
+}
+
+.hic-section-content strong {
+    color: #0066cc;
+}
+
+/* CTA */
+.hic-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 45px;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+
+.hic-cta-icon { font-size: 3em; margin-bottom: 15px; }
+.hic-cta h4 { font-size: 1.5em; margin-bottom: 15px; }
+.hic-cta p { opacity: 0.9; margin: 0; font-size: 1.1em; }
+.hic-cta-tagline { font-weight: 600; margin-top: 20px !important; font-size: 1.2em; }
+
+/* Lightbox */
+.hic-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.hic-lightbox.active { display: flex; }
+.hic-lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.hic-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.hic-lightbox-close:hover { opacity: 1; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hic-hero-slider { height: 60vh; min-height: 350px; margin-top: 60px; }
+    .hic-hero-city { font-size: 3em; letter-spacing: 0.1em; }
+    .hic-hero-topic { font-size: 1em; }
+    .hic-hero-btn { width: 45px; height: 45px; font-size: 1.2em; border-radius: 8px; }
+    .hic-hero-prev { left: 10px; }
+    .hic-hero-next { right: 10px; }
+    .hic-content { padding: 30px 15px; }
+}
+</style>
+
+<div class="hic-blog">
+    <div class="hic-hero-slider" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+        <div class="hic-hero-content">
+            <h1 class="hic-hero-city">Manavgat</h1>
+            <p class="hic-hero-topic"><span class="hic-hero-icon">🍽️</span>Best Restaurants</p>
+        </div>
+    </div>
+    <div class="hic-content">
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Top 10 Restaurants In Manavgat</h3>
+            <div class="hic-section-content">
+                <p>These ten establishments consistently rank highest for food quality, service, and atmosphere.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Panorama Lake Restaurant</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Turkish / Seafood Price: $$ Signature Dish: Oven-baked Trout (Alabalık) or Shepherd’s Roast (Çoban Kavurma) Why it’s Top 10: Located away from the city buzz at the Green Canyon lake, this spot offers a tranquil escape. You can swim in the lake while waiting for your food. It is rustic, authentic, and undeniably beautiful. Reservation: Recommended for weekends.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Karma Restaurant &amp; Night Club</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: International / Fusion Price: $$$$ Signature Dish: Pepper Steak and their artisanal cocktails. Why it’s Top 10: A staple of Side’s nightlife and dining scene. It sits right on the water with a chic, modern vibe. The transition from a sunset dinner to a sophisticated night lounge is seamless. Reservation: Essential for dinner.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Dedem Kasap Cızbız</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Turkish Steakhouse / Butcher (Kasap) Price: $$ Signature Dish: Grilled Meatballs (Köfte) and Lamb Chops (Kuzu Pirzola). Why it’s Top 10: A true local favorite in the Manavgat center. It operates as a butcher shop where you choose your meat cut at the counter, and they grill it to perfection. No frills, just incredible meat. Reservation: Not usually needed, but expect a wait at peak times.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Elia Restaurant &amp; Lounge</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Mediterranean / Fine Dining Price: $$$ Signature Dish: Grilled Octopus and Seafood Risotto. Why it’s Top 10: Known for its &quot;boho-chic&quot; design and stunning views of the Side harbor. The plating is artistic, and the ambiance is sophisticated yet relaxed. Reservation: Highly recommended for sunset hours.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Radika Meze &amp; Balık</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Seafood / Meze (Turkish Tapas) Price: $$$ Signature Dish: Sea Bass in Salt (Tuzda Levrek) and warm Hot Herb starter (Ege Otları). Why it’s Top 10: If you want a traditional &quot;Rakı-Balık&quot; (Anise spirit and fish) night, this is the place. It offers a refined take on the classic Turkish tavern experience. Reservation: Recommended.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Serenade Restaurant &amp; Bar</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Mexican / Steakhouse Price: $$-$$$ Signature Dish: Fajitas and T-Bone Steak. Why it’s Top 10: A break from Turkish cuisine, Serenade is famous for its friendly service and consistently excellent international dishes. It’s a crowd-pleaser for tourists craving variety. Reservation: Good to have during high season.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Taş Konak Restaurant</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Traditional Turkish Breakfast / Grill Price: $$ Signature Dish: &quot;Serpme Kahvaltı&quot; (Full Turkish Village Breakfast). Why it’s Top 10: Located by the Manavgat River, this stone mansion offers a historic atmosphere. It is widely considered the best spot for a long, lazy Sunday breakfast by the water. Reservation: Recommended for breakfast on weekends.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Q Beach Restaurant &amp; Lounge</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Mediterranean / Italian Price: $$$ Signature Dish: Homemade Pasta and Fresh Seafood Platter. Why it’s Top 10: Upscale beach dining at its finest. The setting is luxurious with white linens on the sand, perfect for a breezy lunch or romantic dinner. Reservation: Required for dinner.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Bistro 2000 Steak House &amp; Sports Bar</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: European / Steakhouse Price: $$ Signature Dish: Pepper Steak and Garlic Mushrooms. Why it’s Top 10: Famous for its lively atmosphere and excellent service. It’s the go-to spot for families and groups who want a fun meal and perhaps to catch a football game. Reservation: Walk-ins welcome.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Orfoz Restaurant</h3>
+            <div class="hic-section-content">
+                <p>Cuisine: Seafood Price: $$$ Signature Dish: Calamari and Grilled Red Mullet (Barbun). Why it’s Top 10: Situated near the Apollo Temple, Orfoz is legendary for its location and fresh daily catch. Eating fresh fish while looking at ancient ruins is a unique Manavgat experience. Reservation: Essential for outdoor seating.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Fine Dining (Upscale &amp; Special Occasions)</h3>
+            <div class="hic-section-content">
+                <p>When you want white tablecloths, sommelier service, and world-class presentation.</p>
+                <p>Karma Restaurant: (Mentioned above) The gold standard for upscale dining in the area.</p>
+                <p>Azumare Lounge: Located on the Side peninsula, this spot is more of a lounge but serves high-end bites and wines. It is famous for its sunset decks where you sit on cushions right above the rocks and sea.</p>
+                <p>Divan Antalya (Manavgat/Side Branch): If available, the Divan brand always offers reliable luxury Turkish and international cuisine with impeccable service standards.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Local Favorites (Where The Locals Eat)</h3>
+            <div class="hic-section-content">
+                <p>Escape the tourist traps and eat where the residents of Manavgat go.</p>
+                <p>Dedem Kasap Cızbız: As mentioned, this is the &quot;Meat Lover&#x27;s&quot; paradise. Authentic, loud, and delicious.</p>
+                <p>Şişçi İbo: Located in the Manavgat town center (not the beach area). Famous for &quot;Şiş Köfte&quot; (skewered meatballs) and &quot;Piyaz&quot; (bean salad with tahini). It is cheap, fast, and incredibly tasty.</p>
+                <p>Cihan Pide Kebap: The best spot for &quot;Pide&quot; (Turkish pizza). Try the Kuşbaşılı Pide (diced lamb) or Lahmacun. It is a wallet-friendly, authentic lunch spot.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Best For Views</h3>
+            <div class="hic-section-content">
+                <p>Restaurants that offer a feast for your eyes as well as your stomach.</p>
+                <p>Panorama Lake Restaurant: Unbeatable views of the Green Canyon reservoir. The turquoise water against the mountains is breathtaking.</p>
+                <p>Apollonik Bar &amp; Restaurant: Located practically inside the ancient ruins of Side, offering views of the Temple of Apollo and the sea.</p>
+                <p>Manavgat River Restaurants (e.g., Sultan Sofrası): While some can be touristy, the view of the cool, green Manavgat river rushing by while you eat fresh trout is a classic experience.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Romantic Spots</h3>
+            <div class="hic-section-content">
+                <p>Perfect for proposals, anniversaries, or date nights.</p>
+                <p>Elia Restaurant: The dim lighting, soft jazz, and harbor view make it incredibly romantic.</p>
+                <p>Q Beach Restaurant: There is nothing more romantic than a private table on the sand under the stars with the sound of waves just meters away.</p>
+                <p>The Harbour Restaurant: Located in Side harbor, offering intimate seating and a classic sunset view over the boats.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Family Friendly</h3>
+            <div class="hic-section-content">
+                <p>Great for kids, large groups, and picky eaters.</p>
+                <p>Bistro 2000: Very welcoming staff who are great with kids. The menu is huge, ensuring there is something for everyone (burgers, steaks, pasta, local dishes).</p>
+                <p>Taş Konak: The garden area by the river gives kids plenty of space to run around while parents finish their Turkish tea.</p>
+                <p>Side House Café &amp; Bar: A relaxed atmosphere with a diverse menu including pizzas and burgers, plus high chairs and a friendly vibe toward families.</p>
+            </div>
+        </div>
+
+        <div class="hic-section">
+            <h3 class="hic-section-title">Summary Of Manavgat&#x27;S Best</h3>
+            <div class="hic-section-content">
+                <p>Restaurant Name Cuisine Price Range Signature Dish Best For</p>
+                <p>Panorama Lake Turkish/Seafood $$ Oven-baked Trout Views &amp; Nature</p>
+                <p>Dedem Kasap Steakhouse/BBQ $$ Grilled Meatballs Local Experience</p>
+                <p>Taş Konak Turkish Breakfast $$ Village Breakfast Family &amp; River View</p>
+                <p>Şişçi İbo Turkish Fast Food $ Şiş Köfte &amp; Piyaz Budget/Quick Bite</p>
+                <p>For the best experience, always check the seasonal opening times, as some beachside restaurants in the Side area may close or reduce hours during the winter months (November–March).</p>
+            </div>
+        </div>
+
+        <div class="hic-cta">
+            <div class="hic-cta-icon">✈️</div>
+            <h4>Thanks for Reading!</h4>
+            <p>We hope this guide helps you explore Manavgat. Stay tuned for more travel tips!</p>
+            <p class="hic-cta-tagline">See you in the next adventure! 🌍</p>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="hic-lightbox" id="hicLightbox" onclick="hicCloseLightbox()">
+    <span class="hic-lightbox-close">&times;</span>
+    <img id="hicLightboxImg" src="" alt="">
+</div>
+
+<script>
+// Hero Slider
+let hicHeroIndex = 0;
+const hicHeroSlides = document.getElementById('hicHeroSlides');
+const hicHeroTotal = hicHeroSlides ? hicHeroSlides.children.length : 0;
+
+function hicHeroMove(dir) {
+    hicHeroGo(hicHeroIndex + dir);
+}
+
+function hicHeroGo(index) {
+    if (!hicHeroSlides || hicHeroTotal === 0) return;
+    
+    if (index >= hicHeroTotal) index = 0;
+    if (index < 0) index = hicHeroTotal - 1;
+    
+    hicHeroIndex = index;
+    hicHeroSlides.style.transform = `translateX(-${index * 100}%)`;
+    
+    document.querySelectorAll('.hic-hero-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+// Auto-slide every 5 seconds
+if (hicHeroTotal > 1) {
+    setInterval(() => hicHeroMove(1), 5000);
+}
+
+// Lightbox
+function hicOpenLightbox(src) {
+    document.getElementById('hicLightboxImg').src = src;
+    document.getElementById('hicLightbox').classList.add('active');
+}
+function hicCloseLightbox() {
+    document.getElementById('hicLightbox').classList.remove('active');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hicCloseLightbox(); });
+</script>
+
+<!-- End Blog Content -->
